@@ -1,0 +1,275 @@
+[
+  {
+    "generic_name": "Atorvastatin",
+    "is_combination": false,
+    "is_top_200": true,
+    "brands": ["Lipitor"],
+    "classes": ["Statin", "HMG-CoA reductase inhibitor"]
+  },
+  {
+    "generic_name": "Rosuvastatin",
+    "is_combination": false,
+    "is_top_200": true,
+    "brands": ["Crestor"],
+    "classes": ["Statin"]
+  },
+  {
+    "generic_name": "Simvastatin",
+    "is_combination": false,
+    "is_top_200": true,
+    "brands": ["Zocor"],
+    "classes": ["Statin"]
+  },
+  {
+    "generic_name": "Metformin",
+    "is_combination": false,
+    "is_top_200": true,
+    "brands": ["Glucophage", "Glumetza", "Fortamet"],
+    "classes": ["Biguanide", "Antidiabetic"]
+  },
+  {
+    "generic_name": "Glipizide",
+    "is_combination": false,
+    "is_top_200": true,
+    "brands": ["Glucotrol"],
+    "classes": ["Sulfonylurea", "Antidiabetic"]
+  },
+  {
+    "generic_name": "Insulin glargine",
+    "is_combination": false,
+    "is_top_200": true,
+    "brands": ["Lantus", "Basaglar"],
+    "classes": ["Insulin", "Antidiabetic"]
+  },
+  {
+    "generic_name": "Lisinopril",
+    "is_combination": false,
+    "is_top_200": true,
+    "brands": ["Prinivil", "Zestril"],
+    "classes": ["ACE inhibitor", "Antihypertensive"]
+  },
+  {
+    "generic_name": "Losartan",
+    "is_combination": false,
+    "is_top_200": true,
+    "brands": ["Cozaar"],
+    "classes": ["ARB", "Antihypertensive"]
+  },
+  {
+    "generic_name": "Amlodipine",
+    "is_combination": false,
+    "is_top_200": true,
+    "brands": ["Norvasc"],
+    "classes": ["Calcium channel blocker", "Antihypertensive"]
+  },
+  {
+    "generic_name": "Metoprolol",
+    "is_combination": false,
+    "is_top_200": true,
+    "brands": ["Lopressor", "Toprol XL"],
+    "classes": ["Beta blocker", "Antihypertensive"]
+  },
+  {
+    "generic_name": "Hydrochlorothiazide",
+    "is_combination": false,
+    "is_top_200": true,
+    "brands": ["Microzide"],
+    "classes": ["Thiazide diuretic", "Antihypertensive"]
+  },
+  {
+    "generic_name": "Furosemide",
+    "is_combination": false,
+    "is_top_200": true,
+    "brands": ["Lasix"],
+    "classes": ["Loop diuretic"]
+  },
+  {
+    "generic_name": "Levothyroxine",
+    "is_combination": false,
+    "is_top_200": true,
+    "brands": ["Synthroid", "Levoxyl"],
+    "classes": ["Thyroid hormone"]
+  },
+  {
+    "generic_name": "Omeprazole",
+    "is_combination": false,
+    "is_top_200": true,
+    "brands": ["Prilosec"],
+    "classes": ["Proton pump inhibitor"]
+  },
+  {
+    "generic_name": "Pantoprazole",
+    "is_combination": false,
+    "is_top_200": true,
+    "brands": ["Protonix"],
+    "classes": ["Proton pump inhibitor"]
+  },
+  {
+    "generic_name": "Sertraline",
+    "is_combination": false,
+    "is_top_200": true,
+    "brands": ["Zoloft"],
+    "classes": ["SSRI", "Antidepressant"]
+  },
+  {
+    "generic_name": "Escitalopram",
+    "is_combination": false,
+    "is_top_200": true,
+    "brands": ["Lexapro"],
+    "classes": ["SSRI", "Antidepressant"]
+  },
+  {
+    "generic_name": "Fluoxetine",
+    "is_combination": false,
+    "is_top_200": true,
+    "brands": ["Prozac"],
+    "classes": ["SSRI", "Antidepressant"]
+  },
+  {
+    "generic_name": "Alprazolam",
+    "is_combination": false,
+    "is_top_200": true,
+    "brands": ["Xanax"],
+    "classes": ["Benzodiazepine", "Anxiolytic"]
+  },
+  {
+    "generic_name": "Diazepam",
+    "is_combination": false,
+    "is_top_200": true,
+    "brands": ["Valium"],
+    "classes": ["Benzodiazepine", "Sedative/Hypnotic"]
+  },
+  {
+    "generic_name": "Amoxicillin",
+    "is_combination": false,
+    "is_top_200": true,
+    "brands": ["Amoxil"],
+    "classes": ["Penicillin", "Beta-lactam antibiotic"]
+  },
+  {
+    "generic_name": "Amoxicillin / Clavulanate",
+    "is_combination": true,
+    "is_top_200": true,
+    "brands": ["Augmentin"],
+    "classes": ["Penicillin", "Beta-lactam antibiotic"]
+  },
+  {
+    "generic_name": "Azithromycin",
+    "is_combination": false,
+    "is_top_200": true,
+    "brands": ["Zithromax"],
+    "classes": ["Macrolide antibiotic"]
+  },
+  {
+    "generic_name": "Cephalexin",
+    "is_combination": false,
+    "is_top_200": true,
+    "brands": ["Keflex"],
+    "classes": ["Cephalosporin", "Beta-lactam antibiotic"]
+  },
+  {
+    "generic_name": "Ceftriaxone",
+    "is_combination": false,
+    "is_top_200": false,
+    "brands": ["Rocephin"],
+    "classes": ["Third-generation cephalosporin"]
+  },
+  {
+    "generic_name": "Vancomycin",
+    "is_combination": false,
+    "is_top_200": false,
+    "brands": ["Vancocin"],
+    "classes": ["Glycopeptide antibiotic"]
+  },
+  {
+    "generic_name": "Piperacillin / Tazobactam",
+    "is_combination": true,
+    "is_top_200": false,
+    "brands": ["Zosyn"],
+    "classes": ["Antipseudomonal penicillin"]
+  },
+  {
+    "generic_name": "Heparin",
+    "is_combination": false,
+    "is_top_200": false,
+    "brands": [],
+    "classes": ["Anticoagulant"]
+  },
+  {
+    "generic_name": "Enoxaparin",
+    "is_combination": false,
+    "is_top_200": false,
+    "brands": ["Lovenox"],
+    "classes": ["Low molecular weight heparin", "Anticoagulant"]
+  },
+  {
+    "generic_name": "Warfarin",
+    "is_combination": false,
+    "is_top_200": true,
+    "brands": ["Coumadin"],
+    "classes": ["Vitamin K antagonist", "Anticoagulant"]
+  },
+  {
+    "generic_name": "Clopidogrel",
+    "is_combination": false,
+    "is_top_200": true,
+    "brands": ["Plavix"],
+    "classes": ["Antiplatelet"]
+  },
+  {
+    "generic_name": "Aspirin",
+    "is_combination": false,
+    "is_top_200": true,
+    "brands": ["Bayer"],
+    "classes": ["Antiplatelet", "NSAID"]
+  },
+  {
+    "generic_name": "Ibuprofen",
+    "is_combination": false,
+    "is_top_200": true,
+    "brands": ["Advil", "Motrin"],
+    "classes": ["NSAID"]
+  },
+  {
+    "generic_name": "Acetaminophen",
+    "is_combination": false,
+    "is_top_200": true,
+    "brands": ["Tylenol"],
+    "classes": ["Analgesic", "Antipyretic"]
+  },
+  {
+    "generic_name": "Oxycodone",
+    "is_combination": false,
+    "is_top_200": true,
+    "brands": ["OxyContin", "Roxicodone"],
+    "classes": ["Opioid analgesic"]
+  },
+  {
+    "generic_name": "Morphine",
+    "is_combination": false,
+    "is_top_200": false,
+    "brands": ["MS Contin"],
+    "classes": ["Opioid analgesic"]
+  },
+  {
+    "generic_name": "Propofol",
+    "is_combination": false,
+    "is_top_200": false,
+    "brands": ["Diprivan"],
+    "classes": ["Sedative-hypnotic"]
+  },
+  {
+    "generic_name": "Norepinephrine",
+    "is_combination": false,
+    "is_top_200": false,
+    "brands": ["Levophed"],
+    "classes": ["Vasopressor"]
+  },
+  {
+    "generic_name": "Dopamine",
+    "is_combination": false,
+    "is_top_200": false,
+    "brands": [],
+    "classes": ["Vasopressor", "Inotrope"]
+  }
+]

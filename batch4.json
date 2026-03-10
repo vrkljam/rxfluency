@@ -1,0 +1,345 @@
+[
+  {
+    "generic_name": "Albuterol",
+    "brands": ["ProAir HFA", "Ventolin HFA"],
+    "classes": ["Beta-2 agonist", "Bronchodilator", "Respiratory agent"],
+    "is_top_200": true,
+    "is_combination": false
+  },
+  {
+    "generic_name": "Montelukast",
+    "brands": ["Singulair"],
+    "classes": ["Leukotriene receptor antagonist", "Respiratory agent"],
+    "is_top_200": true,
+    "is_combination": false
+  },
+  {
+    "generic_name": "Tiotropium",
+    "brands": ["Spiriva"],
+    "classes": ["Anticholinergic", "Bronchodilator", "Respiratory agent"],
+    "is_top_200": true,
+    "is_combination": false
+  },
+  {
+    "generic_name": "Levothyroxine",
+    "brands": ["Synthroid", "Levoxyl", "Levothroid"],
+    "classes": ["Thyroid hormone", "Endocrine agent"],
+    "is_top_200": true,
+    "is_combination": false
+  },
+  {
+    "generic_name": "Metoprolol",
+    "brands": ["Lopressor", "Toprol XL"],
+    "classes": ["Beta blocker", "Cardiovascular agent", "Antihypertensive"],
+    "is_top_200": true,
+    "is_combination": false
+  },
+  {
+    "generic_name": "Atenolol",
+    "brands": ["Tenormin"],
+    "classes": ["Beta blocker", "Cardiovascular agent", "Antihypertensive"],
+    "is_top_200": true,
+    "is_combination": false
+  },
+  {
+    "generic_name": "Carvedilol",
+    "brands": ["Coreg"],
+    "classes": ["Beta blocker", "Cardiovascular agent", "Antihypertensive"],
+    "is_top_200": true,
+    "is_combination": false
+  },
+  {
+    "generic_name": "Lisinopril",
+    "brands": ["Prinivil", "Zestril"],
+    "classes": ["ACE inhibitor", "Cardiovascular agent", "Antihypertensive"],
+    "is_top_200": true,
+    "is_combination": false
+  },
+  {
+    "generic_name": "Enalapril",
+    "brands": ["Vasotec"],
+    "classes": ["ACE inhibitor", "Cardiovascular agent", "Antihypertensive"],
+    "is_top_200": true,
+    "is_combination": false
+  },
+  {
+    "generic_name": "Losartan",
+    "brands": ["Cozaar"],
+    "classes": ["ARB", "Cardiovascular agent", "Antihypertensive"],
+    "is_top_200": true,
+    "is_combination": false
+  },
+  {
+    "generic_name": "Valsartan",
+    "brands": ["Diovan"],
+    "classes": ["ARB", "Cardiovascular agent", "Antihypertensive"],
+    "is_top_200": true,
+    "is_combination": false
+  },
+  {
+    "generic_name": "Furosemide",
+    "brands": ["Lasix"],
+    "classes": ["Loop diuretic", "Cardiovascular agent"],
+    "is_top_200": true,
+    "is_combination": false
+  },
+  {
+    "generic_name": "Spironolactone",
+    "brands": ["Aldactone"],
+    "classes": ["Potassium-sparing diuretic", "Cardiovascular agent"],
+    "is_top_200": true,
+    "is_combination": false
+  },
+  {
+    "generic_name": "Hydrochlorothiazide",
+    "brands": ["Microzide"],
+    "classes": ["Thiazide diuretic", "Cardiovascular agent"],
+    "is_top_200": true,
+    "is_combination": false
+  },
+  {
+    "generic_name": "Simvastatin",
+    "brands": ["Zocor"],
+    "classes": ["HMG-CoA reductase inhibitor", "Lipid-lowering agent"],
+    "is_top_200": true,
+    "is_combination": false
+  },
+  {
+    "generic_name": "Atorvastatin",
+    "brands": ["Lipitor"],
+    "classes": ["HMG-CoA reductase inhibitor", "Lipid-lowering agent"],
+    "is_top_200": true,
+    "is_combination": false
+  },
+  {
+    "generic_name": "Rosuvastatin",
+    "brands": ["Crestor"],
+    "classes": ["HMG-CoA reductase inhibitor", "Lipid-lowering agent"],
+    "is_top_200": true,
+    "is_combination": false
+  },
+  {
+    "generic_name": "Lovastatin",
+    "brands": ["Mevacor"],
+    "classes": ["HMG-CoA reductase inhibitor", "Lipid-lowering agent"],
+    "is_top_200": true,
+    "is_combination": false
+  },
+  {
+    "generic_name": "Clonazepam",
+    "brands": ["Klonopin"],
+    "classes": ["Benzodiazepine", "Anxiolytic", "Anticonvulsant"],
+    "is_top_200": true,
+    "is_combination": false
+  },
+  {
+    "generic_name": "Alprazolam",
+    "brands": ["Xanax"],
+    "classes": ["Benzodiazepine", "Anxiolytic", "Sedative/hypnotic"],
+    "is_top_200": true,
+    "is_combination": false
+  },
+  {
+    "generic_name": "Buspirone",
+    "brands": ["Buspar"],
+    "classes": ["Anxiolytic", "Serotonin receptor agonist"],
+    "is_top_200": true,
+    "is_combination": false
+  },
+  {
+    "generic_name": "Citalopram",
+    "brands": ["Celexa"],
+    "classes": ["SSRI", "Antidepressant"],
+    "is_top_200": true,
+    "is_combination": false
+  },
+  {
+    "generic_name": "Sertraline",
+    "brands": ["Zoloft"],
+    "classes": ["SSRI", "Antidepressant"],
+    "is_top_200": true,
+    "is_combination": false
+  },
+  {
+    "generic_name": "Paroxetine",
+    "brands": ["Paxil"],
+    "classes": ["SSRI", "Antidepressant"],
+    "is_top_200": true,
+    "is_combination": false
+  },
+  {
+    "generic_name": "Trazodone",
+    "brands": ["Desyrel"],
+    "classes": ["Antidepressant", "Sedative/hypnotic"],
+    "is_top_200": true,
+    "is_combination": false
+  },
+  {
+    "generic_name": "Oxybutynin",
+    "brands": ["Ditropan", "Oxytrol"],
+    "classes": ["Anticholinergic", "Urinary agent"],
+    "is_top_200": true,
+    "is_combination": false
+  },
+  {
+    "generic_name": "Tolterodine",
+    "brands": ["Detrol"],
+    "classes": ["Anticholinergic", "Urinary agent"],
+    "is_top_200": true,
+    "is_combination": false
+  },
+  {
+    "generic_name": "Finasteride",
+    "brands": ["Proscar", "Propecia"],
+    "classes": ["5-alpha reductase inhibitor", "Endocrine agent"],
+    "is_top_200": true,
+    "is_combination": false
+  },
+  {
+    "generic_name": "Tadalafil",
+    "brands": ["Cialis"],
+    "classes": ["PDE5 inhibitor", "Endocrine agent"],
+    "is_top_200": true,
+    "is_combination": false
+  },
+  {
+    "generic_name": "Sildenafil",
+    "brands": ["Viagra", "Revatio"],
+    "classes": ["PDE5 inhibitor", "Endocrine agent"],
+    "is_top_200": true,
+    "is_combination": false
+  },
+  {
+    "generic_name": "Warfarin",
+    "brands": ["Coumadin"],
+    "classes": ["Vitamin K antagonist", "Anticoagulant"],
+    "is_top_200": true,
+    "is_combination": false
+  },
+  {
+    "generic_name": "Apixaban",
+    "brands": ["Eliquis"],
+    "classes": ["Factor Xa inhibitor", "Anticoagulant"],
+    "is_top_200": true,
+    "is_combination": false
+  },
+  {
+    "generic_name": "Rivaroxaban",
+    "brands": ["Xarelto"],
+    "classes": ["Factor Xa inhibitor", "Anticoagulant"],
+    "is_top_200": true,
+    "is_combination": false
+  },
+  {
+    "generic_name": "Clopidogrel",
+    "brands": ["Plavix"],
+    "classes": ["Antiplatelet", "Cardiovascular agent"],
+    "is_top_200": true,
+    "is_combination": false
+  },
+  {
+    "generic_name": "Prednisone",
+    "brands": ["Deltasone"],
+    "classes": ["Glucocorticoid", "Corticosteroid"],
+    "is_top_200": true,
+    "is_combination": false
+  },
+  {
+    "generic_name": "Prednisolone",
+    "brands": ["Orapred", "Prelone"],
+    "classes": ["Glucocorticoid", "Corticosteroid"],
+    "is_top_200": true,
+    "is_combination": false
+  },
+  {
+    "generic_name": "Hydrocortisone",
+    "brands": ["Cortef", "Solu-Cortef"],
+    "classes": ["Glucocorticoid", "Corticosteroid"],
+    "is_top_200": true,
+    "is_combination": false
+  },
+  {
+    "generic_name": "Mupirocin",
+    "brands": ["Bactroban"],
+    "classes": ["Topical antibiotic", "Antibacterial"],
+    "is_top_200": true,
+    "is_combination": false
+  },
+  {
+    "generic_name": "Clindamycin",
+    "brands": ["Cleocin"],
+    "classes": ["Lincosamide antibiotic"],
+    "is_top_200": true,
+    "is_combination": false
+  },
+  {
+    "generic_name": "Azithromycin",
+    "brands": ["Zithromax", "Zmax"],
+    "classes": ["Macrolide antibiotic"],
+    "is_top_200": true,
+    "is_combination": false
+  },
+  {
+    "generic_name": "Amoxicillin",
+    "brands": ["Amoxil", "Moxatag"],
+    "classes": ["Penicillin antibiotic"],
+    "is_top_200": true,
+    "is_combination": false
+  },
+  {
+    "generic_name": "Amoxicillin and Clavulanate",
+    "brands": ["Augmentin"],
+    "classes": ["Penicillin antibiotic", "Beta-lactamase inhibitor"],
+    "is_top_200": true,
+    "is_combination": true
+  },
+  {
+    "generic_name": "Cephalexin",
+    "brands": ["Keflex"],
+    "classes": ["Cephalosporin antibiotic"],
+    "is_top_200": true,
+    "is_combination": false
+  },
+  {
+    "generic_name": "Cefdinir",
+    "brands": ["Omnicef"],
+    "classes": ["Cephalosporin antibiotic"],
+    "is_top_200": true,
+    "is_combination": false
+  },
+  {
+    "generic_name": "Cefuroxime",
+    "brands": ["Ceftin"],
+    "classes": ["Cephalosporin antibiotic"],
+    "is_top_200": true,
+    "is_combination": false
+  },
+  {
+    "generic_name": "Ceftriaxone",
+    "brands": ["Rocephin"],
+    "classes": ["Cephalosporin antibiotic"],
+    "is_top_200": true,
+    "is_combination": false
+  },
+  {
+    "generic_name": "Levetiracetam",
+    "brands": ["Keppra"],
+    "classes": ["Anticonvulsant", "Neurological agent"],
+    "is_top_200": true,
+    "is_combination": false
+  },
+  {
+    "generic_name": "Valacyclovir",
+    "brands": ["Valtrex"],
+    "classes": ["Antiviral", "Herpes agent"],
+    "is_top_200": true,
+    "is_combination": false
+  },
+  {
+    "generic_name": "Acyclovir",
+    "brands": ["Zovirax"],
+    "classes": ["Antiviral", "Herpes agent"],
+    "is_top_200": true,
+    "is_combination": false
+  }
+]

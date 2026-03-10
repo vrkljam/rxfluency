@@ -1,0 +1,21 @@
+notes.txt
+chatnotes.txt
+
+aiHelp.pdf
+aiHelp2.pdf
+aiHelp3.pdf
+settings.sql
+
+# Python / Django
+*.pyc
+__pycache__/
+db.sqlite3
+media/
+staticfiles/
+*.log
+
+# Virtualenv
+venv/
+.env
+
+import.py

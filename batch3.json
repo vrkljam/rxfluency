@@ -1,0 +1,226 @@
+[
+  {
+    "generic_name": "Pantoprazole",
+    "brands": ["Protonix"],
+    "classes": ["Proton pump inhibitor", "Gastrointestinal agent"],
+    "is_top_200": true,
+    "is_combination": false
+  },
+  {
+    "generic_name": "Clopidogrel",
+    "brands": ["Plavix"],
+    "classes": ["Antiplatelet", "Cardiovascular agent"],
+    "is_top_200": true,
+    "is_combination": false
+  },
+  {
+    "generic_name": "Fluticasone",
+    "brands": ["Flonase", "Flovent"],
+    "classes": ["Corticosteroid", "Anti-inflammatory", "Respiratory agent"],
+    "is_top_200": true,
+    "is_combination": false
+  },
+  {
+    "generic_name": "Tamsulosin",
+    "brands": ["Flomax"],
+    "classes": ["Alpha-1 blocker", "Urinary agent"],
+    "is_top_200": true,
+    "is_combination": false
+  },
+  {
+    "generic_name": "Zolpidem",
+    "brands": ["Ambien"],
+    "classes": ["Sedative/hypnotic", "Non-benzodiazepine"],
+    "is_top_200": true,
+    "is_combination": false
+  },
+  {
+    "generic_name": "Fluoxetine",
+    "brands": ["Prozac"],
+    "classes": ["SSRI", "Antidepressant"],
+    "is_top_200": true,
+    "is_combination": false
+  },
+  {
+    "generic_name": "Ranitidine",
+    "brands": ["Zantac"],
+    "classes": ["H2 blocker", "Gastrointestinal agent"],
+    "is_top_200": true,
+    "is_combination": false
+  },
+  {
+    "generic_name": "Allopurinol",
+    "brands": ["Zyloprim"],
+    "classes": ["Xanthine oxidase inhibitor", "Gout agent"],
+    "is_top_200": true,
+    "is_combination": false
+  },
+  {
+    "generic_name": "Cyclobenzaprine",
+    "brands": ["Flexeril"],
+    "classes": ["Skeletal muscle relaxant"],
+    "is_top_200": true,
+    "is_combination": false
+  },
+  {
+    "generic_name": "Oxycodone and Acetaminophen",
+    "brands": ["Percocet"],
+    "classes": ["Opioid", "Analgesic"],
+    "is_top_200": true,
+    "is_combination": true
+  },
+  {
+    "generic_name": "Hydrocodone and Acetaminophen",
+    "brands": ["Vicodin", "Norco"],
+    "classes": ["Opioid", "Analgesic"],
+    "is_top_200": true,
+    "is_combination": true
+  },
+  {
+    "generic_name": "Venlafaxine",
+    "brands": ["Effexor XR"],
+    "classes": ["SNRI", "Antidepressant"],
+    "is_top_200": true,
+    "is_combination": false
+  },
+  {
+    "generic_name": "Bupropion",
+    "brands": ["Wellbutrin"],
+    "classes": ["Antidepressant", "Norepinephrine-dopamine reuptake inhibitor"],
+    "is_top_200": true,
+    "is_combination": false
+  },
+  {
+    "generic_name": "Risperidone",
+    "brands": ["Risperdal"],
+    "classes": ["Antipsychotic", "Atypical antipsychotic"],
+    "is_top_200": true,
+    "is_combination": false
+  },
+  {
+    "generic_name": "Ciprofloxacin",
+    "brands": ["Cipro"],
+    "classes": ["Fluoroquinolone antibiotic"],
+    "is_top_200": true,
+    "is_combination": false
+  },
+  {
+    "generic_name": "Levofloxacin",
+    "brands": ["Levaquin"],
+    "classes": ["Fluoroquinolone antibiotic"],
+    "is_top_200": true,
+    "is_combination": false
+  },
+  {
+    "generic_name": "Digoxin",
+    "brands": ["Lanoxin"],
+    "classes": ["Cardiac glycoside", "Antiarrhythmic"],
+    "is_top_200": true,
+    "is_combination": false
+  },
+  {
+    "generic_name": "Diazepam",
+    "brands": ["Valium"],
+    "classes": ["Benzodiazepine", "Anxiolytic", "Sedative/hypnotic"],
+    "is_top_200": true,
+    "is_combination": false
+  },
+  {
+    "generic_name": "Lorazepam",
+    "brands": ["Ativan"],
+    "classes": ["Benzodiazepine", "Anxiolytic", "Sedative/hypnotic"],
+    "is_top_200": true,
+    "is_combination": false
+  },
+  {
+    "generic_name": "Clarithromycin",
+    "brands": ["Biaxin"],
+    "classes": ["Macrolide antibiotic"],
+    "is_top_200": true,
+    "is_combination": false
+  },
+  {
+    "generic_name": "Methylprednisolone",
+    "brands": ["Medrol"],
+    "classes": ["Glucocorticoid", "Corticosteroid"],
+    "is_top_200": true,
+    "is_combination": false
+  },
+  {
+    "generic_name": "Ibuprofen",
+    "brands": ["Motrin", "Advil"],
+    "classes": ["NSAID", "Analgesic", "Anti-inflammatory"],
+    "is_top_200": true,
+    "is_combination": false
+  },
+  {
+    "generic_name": "Esomeprazole",
+    "brands": ["Nexium"],
+    "classes": ["Proton pump inhibitor", "Gastrointestinal agent"],
+    "is_top_200": true,
+    "is_combination": false
+  },
+  {
+    "generic_name": "Hydrochlorothiazide and Losartan",
+    "brands": ["Hyzaar"],
+    "classes": ["Thiazide diuretic", "ARB", "Antihypertensive"],
+    "is_top_200": true,
+    "is_combination": true
+  },
+  {
+    "generic_name": "Duloxetine",
+    "brands": ["Cymbalta"],
+    "classes": ["SNRI", "Antidepressant", "Neuropathic pain agent"],
+    "is_top_200": true,
+    "is_combination": false
+  },
+  {
+    "generic_name": "Allopurinol",
+    "brands": ["Zyloprim"],
+    "classes": ["Xanthine oxidase inhibitor", "Gout agent"],
+    "is_top_200": true,
+    "is_combination": false
+  },
+  {
+    "generic_name": "Metformin",
+    "brands": ["Glucophage"],
+    "classes": ["Biguanide", "Antidiabetic"],
+    "is_top_200": true,
+    "is_combination": false
+  },
+  {
+    "generic_name": "Glipizide",
+    "brands": ["Glucotrol"],
+    "classes": ["Sulfonylurea", "Antidiabetic"],
+    "is_top_200": true,
+    "is_combination": false
+  },
+  {
+    "generic_name": "Pioglitazone",
+    "brands": ["Actos"],
+    "classes": ["Thiazolidinedione", "Antidiabetic"],
+    "is_top_200": true,
+    "is_combination": false
+  },
+  {
+    "generic_name": "Sitagliptin",
+    "brands": ["Januvia"],
+    "classes": ["DPP-4 inhibitor", "Antidiabetic"],
+    "is_top_200": true,
+    "is_combination": false
+  },
+  {
+    "generic_name": "Insulin Glargine",
+    "brands": ["Lantus"],
+    "classes": ["Insulin", "Antidiabetic"],
+    "is_top_200": true,
+    "is_combination": false
+  },
+  {
+    "generic_name": "Insulin Lispro",
+    "brands": ["Humalog"],
+    "classes": ["Insulin", "Antidiabetic"],
+    "is_top_200": true,
+    "is_combination": false
+  }
+]

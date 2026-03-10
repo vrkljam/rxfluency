@@ -1,0 +1,319 @@
+/* ----------------- Global ----------------- */
+:root {
+  font-family: "Inter", system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* =============================================
+   Global / Body
+   ============================================= */
+body {
+  min-height: 100vh;
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  transition:
+    background 0.3s ease,
+    color 0.3s ease;
+}
+
+body.light-theme {
+  background: linear-gradient(135deg, #4e73df, #1cc88a);
+  color: #1a1a1a; /* dark text */
+}
+
+body.dark-theme {
+  background: linear-gradient(135deg, #0d3b66, #118c4f);
+  color: #f1f1f1; /* light text */
+}
+
+/* =============================================
+   Navbar
+   ============================================= */
+.light-theme .navbar {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+  color: #1a1a1a;
+}
+
+.dark-theme .navbar {
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+  color: #f1f1f1;
+}
+
+/* =============================================
+   Cards & Containers
+   ============================================= */
+.light-theme .card,
+.light-theme .container {
+  background-color: rgba(255, 255, 255, 0.85);
+  border: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  color: #1a1a1a;
+  transition:
+    background-color 0.3s,
+    color 0.3s;
+}
+
+.dark-theme .card,
+.dark-theme .container {
+  background-color: rgba(0, 0, 0, 0.6);
+  border: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+  color: #f1f1f1;
+  transition:
+    background-color 0.3s,
+    color 0.3s;
+}
+
+/* =============================================
+   Links
+   ============================================= */
+.light-theme a {
+  color: #1cc88a;
+  transition: color 0.3s;
+}
+
+.light-theme a:hover {
+  color: #4e73df;
+}
+
+.dark-theme a {
+  color: #1cc88a;
+  transition: color 0.3s;
+}
+
+.dark-theme a:hover {
+  color: #0d3b66;
+}
+
+/* =============================================
+   Buttons
+   ============================================= */
+.light-theme .btn {
+  color: #fff;
+  background-color: #4e73df;
+  border: none;
+  transition: background-color 0.3s;
+}
+
+.light-theme .btn:hover {
+  background-color: #1cc88a;
+}
+
+.dark-theme .btn {
+  color: #fff;
+  background-color: #0d3b66;
+  border: none;
+  transition: background-color 0.3s;
+}
+
+.dark-theme .btn:hover {
+  background-color: #118c4f;
+}
+
+/* =============================================
+   Forms / Inputs / Textareas
+   ============================================= */
+.light-theme input,
+.light-theme textarea,
+.light-theme select {
+  background-color: #fff;
+  color: #1a1a1a;
+  border: 1px solid #ccc;
+  transition:
+    background-color 0.3s,
+    color 0.3s,
+    border-color 0.3s;
+}
+
+.dark-theme input,
+.dark-theme textarea,
+.dark-theme select {
+  background-color: #333;
+  color: #f1f1f1;
+  border: 1px solid #555;
+  transition:
+    background-color 0.3s,
+    color 0.3s,
+    border-color 0.3s;
+}
+
+.light-theme input::placeholder,
+.light-theme textarea::placeholder {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.dark-theme input::placeholder,
+.dark-theme textarea::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.light-theme label {
+  color: #1a1a1a;
+}
+
+.dark-theme label {
+  color: #f1f1f1;
+}
+
+/* =============================================
+   Sidebar
+   ============================================= */
+.sidebar {
+  padding: 1rem;
+  border-right: 1px solid #ccc;
+}
+
+.light-theme .sidebar {
+  background-color: #e0f7ff; /* light blue */
+  color: #1a1a1a;
+  transition:
+    background-color 0.3s,
+    color 0.3s;
+}
+
+.dark-theme .sidebar {
+  background-color: #002b4f; /* dark blue */
+  color: #f1f1f1;
+  transition:
+    background-color 0.3s,
+    color 0.3s;
+}
+
+/* =============================================
+   Misc Utility / Layout
+   ============================================= */
+.text-center {
+  text-align: center;
+}
+
+.mt-2 {
+  margin-top: 0.5rem;
+}
+
+.mt-3 {
+  margin-top: 1rem;
+}
+
+.mt-4 {
+  margin-top: 1.5rem;
+}
+
+.mt-5 {
+  margin-top: 3rem;
+}
+
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
+
+.mb-3 {
+  margin-bottom: 1rem;
+}
+
+.mb-4 {
+  margin-bottom: 1.5rem;
+}
+
+.mb-5 {
+  margin-bottom: 3rem;
+}
+
+.p-3 {
+  padding: 1rem;
+}
+
+.p-4 {
+  padding: 1.5rem;
+}
+
+.shadow {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.border-end {
+  border-right: 1px solid #ccc;
+}
+
+/* =============================================
+   Form Cards (Login / Register / other forms)
+   ============================================= */
+.form-card {
+  max-width: 500px;
+  margin: 2rem auto;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  transition:
+    background-color 0.3s,
+    color 0.3s;
+}
+
+/* Light theme form card */
+.light-theme .form-card {
+  background-color: #ffffff; /* bright white */
+  color: #1a1a1a; /* dark text */
+}
+
+/* Dark theme form card */
+.dark-theme .form-card {
+  background-color: #1a1a1a; /* dark card */
+  color: #f1f1f1; /* light text */
+}
+
+/* Optional: Form input styling inside cards */
+.form-card input,
+.form-card textarea,
+.form-card select {
+  width: 100%;
+  margin-bottom: 1rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  transition:
+    background-color 0.3s,
+    color 0.3s,
+    border-color 0.3s;
+}
+
+.light-theme .form-card input,
+.light-theme .form-card textarea,
+.light-theme .form-card select {
+  background-color: #f9f9f9;
+  color: #1a1a1a;
+  border: 1px solid #ddd;
+}
+
+.dark-theme .form-card input,
+.dark-theme .form-card textarea,
+.dark-theme .form-card select {
+  background-color: #333;
+  color: #f1f1f1;
+  border: 1px solid #555;
+}
+
+.form-card input::placeholder,
+.form-card textarea::placeholder {
+  opacity: 0.7;
+}
+
+.light-theme .form-card input::placeholder,
+.light-theme .form-card textarea::placeholder {
+  color: #666;
+}
+
+.dark-theme .form-card input::placeholder,
+.dark-theme .form-card textarea::placeholder {
+  color: #bbb;
+}

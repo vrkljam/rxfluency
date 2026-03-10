@@ -1,0 +1,177 @@
+[
+  {
+    "generic_name": "Oxycodone",
+    "brands": ["OxyContin", "Roxicodone"],
+    "classes": ["Opioid", "Analgesic"],
+    "is_top_200": true,
+    "is_combination": false
+  },
+  {
+    "generic_name": "Lisinopril",
+    "brands": ["Prinivil", "Zestril"],
+    "classes": ["ACE inhibitor", "Antihypertensive"],
+    "is_top_200": true,
+    "is_combination": false
+  },
+  {
+    "generic_name": "Simvastatin",
+    "brands": ["Zocor"],
+    "classes": ["HMG-CoA reductase inhibitor", "Lipid-lowering agent"],
+    "is_top_200": true,
+    "is_combination": false
+  },
+  {
+    "generic_name": "Levothyroxine",
+    "brands": ["Synthroid", "Levoxyl"],
+    "classes": ["Thyroid hormone"],
+    "is_top_200": true,
+    "is_combination": false
+  },
+  {
+    "generic_name": "Amoxicillin and Clavulanic Acid",
+    "brands": ["Augmentin"],
+    "classes": ["Penicillin antibiotic", "Beta-lactamase inhibitor"],
+    "is_top_200": true,
+    "is_combination": true
+  },
+  {
+    "generic_name": "Hydrochlorothiazide",
+    "brands": ["Microzide"],
+    "classes": ["Thiazide diuretic", "Antihypertensive"],
+    "is_top_200": true,
+    "is_combination": false
+  },
+  {
+    "generic_name": "Azithromycin",
+    "brands": ["Zithromax", "Zmax"],
+    "classes": ["Macrolide antibiotic"],
+    "is_top_200": true,
+    "is_combination": false
+  },
+  {
+    "generic_name": "Amlodipine",
+    "brands": ["Norvasc"],
+    "classes": ["Calcium channel blocker", "Antihypertensive"],
+    "is_top_200": true,
+    "is_combination": false
+  },
+  {
+    "generic_name": "Alprazolam",
+    "brands": ["Xanax"],
+    "classes": ["Benzodiazepine", "Anxiolytic"],
+    "is_top_200": true,
+    "is_combination": false
+  },
+  {
+    "generic_name": "Prednisone",
+    "brands": ["Deltasone"],
+    "classes": ["Glucocorticoid", "Corticosteroid"],
+    "is_top_200": true,
+    "is_combination": false
+  },
+  {
+    "generic_name": "Furosemide",
+    "brands": ["Lasix"],
+    "classes": ["Loop diuretic", "Antihypertensive"],
+    "is_top_200": true,
+    "is_combination": false
+  },
+  {
+    "generic_name": "Gabapentin",
+    "brands": ["Neurontin"],
+    "classes": ["Anticonvulsant", "Neuropathic pain agent"],
+    "is_top_200": true,
+    "is_combination": false
+  },
+  {
+    "generic_name": "Citalopram",
+    "brands": ["Celexa"],
+    "classes": ["SSRI", "Antidepressant"],
+    "is_top_200": true,
+    "is_combination": false
+  },
+  {
+    "generic_name": "Tramadol",
+    "brands": ["Ultram"],
+    "classes": ["Opioid", "Analgesic"],
+    "is_top_200": true,
+    "is_combination": false
+  },
+  {
+    "generic_name": "Metoprolol Succinate",
+    "brands": ["Toprol XL"],
+    "classes": ["Beta blocker", "Antihypertensive"],
+    "is_top_200": true,
+    "is_combination": false
+  },
+  {
+    "generic_name": "Metoprolol Tartrate",
+    "brands": ["Lopressor"],
+    "classes": ["Beta blocker", "Antihypertensive"],
+    "is_top_200": true,
+    "is_combination": false
+  },
+  {
+    "generic_name": "Clonazepam",
+    "brands": ["Klonopin"],
+    "classes": ["Benzodiazepine", "Anticonvulsant", "Anxiolytic"],
+    "is_top_200": true,
+    "is_combination": false
+  },
+  {
+    "generic_name": "Meloxicam",
+    "brands": ["Mobic"],
+    "classes": ["NSAID", "Analgesic", "Anti-inflammatory"],
+    "is_top_200": true,
+    "is_combination": false
+  },
+  {
+    "generic_name": "Montelukast",
+    "brands": ["Singulair"],
+    "classes": ["Leukotriene receptor antagonist", "Asthma agent"],
+    "is_top_200": true,
+    "is_combination": false
+  },
+  {
+    "generic_name": "Losartan",
+    "brands": ["Cozaar"],
+    "classes": ["Angiotensin II receptor blocker (ARB)", "Antihypertensive"],
+    "is_top_200": true,
+    "is_combination": false
+  },
+  {
+    "generic_name": "Warfarin",
+    "brands": ["Coumadin", "Jantoven"],
+    "classes": ["Vitamin K antagonist", "Anticoagulant"],
+    "is_top_200": true,
+    "is_combination": false
+  },
+  {
+    "generic_name": "Sertraline",
+    "brands": ["Zoloft"],
+    "classes": ["SSRI", "Antidepressant"],
+    "is_top_200": true,
+    "is_combination": false
+  },
+  {
+    "generic_name": "Trazodone",
+    "brands": ["Desyrel"],
+    "classes": ["Antidepressant", "Sedative"],
+    "is_top_200": true,
+    "is_combination": false
+  },
+  {
+    "generic_name": "Doxycycline",
+    "brands": ["Vibramycin", "Doryx"],
+    "classes": ["Tetracycline antibiotic"],
+    "is_top_200": true,
+    "is_combination": false
+  },
+  {
+    "generic_name": "Omeprozole",
+    "brands": ["Prilosec", "Zegerid"],
+    "classes": ["Proton pump inhibitor", "Gastrointestinal agent"],
+    "is_top_200": true,
+    "is_combination": false
+  }
+]
