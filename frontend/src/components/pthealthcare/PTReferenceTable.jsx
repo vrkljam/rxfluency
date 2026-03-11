@@ -2,13 +2,13 @@
 import React, { useEffect, useState } from "react";
 import api from "../../api/api";
 
-const PTReference = () => {
+const PTReferenceTable = () => {
   const [drugs, setDrugs] = useState([]);
 
   useEffect(() => {
     // Fetch PT drugs from your Django backend
     api
-      .get("/pt_drugs_ref/") // Adjust endpoint based on your DRF setup
+      .get("/pthealthcare/drugs/") // Adjust endpoint based on your DRF setup
       .then((res) => setDrugs(res.data))
       .catch((err) => console.error(err));
   }, []);
@@ -36,7 +36,7 @@ const PTReference = () => {
               <td>{drug.name}</td>
               <td>{drug.drug_class}</td>
               <td>
-                {drug.facts.map((fact, i) => (
+                {(drug.facts || []).map((fact, i) => (
                   <div key={i}>
                     <strong>{fact.category}:</strong> {fact.text}
                   </div>
@@ -50,4 +50,4 @@ const PTReference = () => {
   );
 };
 
-export default PTReference;
+export default PTReferenceTable;

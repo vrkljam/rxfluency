@@ -39,7 +39,7 @@ const Navbar = ({ theme, setTheme }) => {
           PT Drug Reference
         </Link>
         <Link className="btn btn-outline-dark" to="/pt-reference">
-          PT Drug Reference
+          PT Drug Reference Table
         </Link>
         <Link className="btn btn-outline-dark" to="/pt-flashcards">
           PT Flashcards

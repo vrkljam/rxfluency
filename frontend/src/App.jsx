@@ -24,7 +24,7 @@ import PTHealthcare from "./components/pthealthcare/PTHealthcare";
 import PTHealthcareFillInQuiz from "./components/pthealthcare/PTHealthcareFillInQuiz";
 import PTHealthcareDrugReference from "./components/pthealthcare/PTHealthcareDrugReference";
 import PTDrugFlashcards from "./components/pthealthcare/PTDrugFlashcards";
-import PTReference from "./components/pthealthcare/PTReference";
+import PTReference from "./components/pthealthcare/PTReferenceTable";
 
 function App() {
   const [theme, setTheme] = useState("light-theme");
