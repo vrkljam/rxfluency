@@ -180,7 +180,7 @@ SIMPLE_JWT = { #new
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 STATICFILES_DIRS = [
-    BASE_DIR / "frontend" / "dist" / "assets",
+    BASE_DIR / "frontend" / "dist" ,
 ]
 
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
