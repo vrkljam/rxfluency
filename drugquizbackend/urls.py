@@ -19,7 +19,7 @@ from django.urls import path, include, re_path
 # from django.http import HttpResponse
 # from loginout.views import RegisterView,ProfileView,LogoutView
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
-
+from django.views.generic import TemplateView
 
 
 # def home(request):
