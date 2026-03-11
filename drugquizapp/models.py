@@ -38,7 +38,7 @@ class Brand(models.Model):
     # drug = models.ForeignKey(Drug, on_delete=models.CASCADE, related_name="brands")
     
     def __str__(self):
-        return f"{self.name} ({self.drug.generic_name})"
+        return self.name
 
 
 

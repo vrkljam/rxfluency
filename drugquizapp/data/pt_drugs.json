@@ -1,0 +1,122 @@
+[
+  {
+    "name": "Metoprolol",
+    "drug_class": "Beta-blocker",
+    "facts": [
+      ["Beta-1 selective", "mechanism"],
+      ["Decreases heart rate", "indication"],
+      ["Fatigue, dizziness", "side_effect"],
+      ["Avoid in bradycardia", "contraindication"],
+      ["May interact with NSAIDs", "interaction"],
+      ["Take with food", "other"]
+    ]
+  },
+  {
+    "name": "Ibuprofen",
+    "drug_class": "NSAID",
+    "facts": [
+      ["COX inhibition", "mechanism"],
+      ["Pain, inflammation", "indication"],
+      ["GI upset, bleeding", "side_effect"],
+      ["Allergy to NSAIDs", "contraindication"],
+      ["Interacts with anticoagulants", "interaction"],
+      ["Take with food", "other"]
+    ]
+  },
+  {
+    "name": "Lisinopril",
+    "drug_class": "ACE inhibitor",
+    "facts": [
+      ["Inhibits ACE enzyme", "mechanism"],
+      ["HTN, heart failure", "indication"],
+      ["Cough, hyperkalemia", "side_effect"],
+      ["Pregnancy", "contraindication"],
+      ["May interact with NSAIDs", "interaction"],
+      ["Take at same time daily", "other"]
+    ]
+  },
+  {
+    "name": "Amlodipine",
+    "drug_class": "Calcium channel blocker",
+    "facts": [
+      ["Blocks Ca++ channels", "mechanism"],
+      ["HTN, angina", "indication"],
+      ["Peripheral edema, dizziness", "side_effect"],
+      ["Severe hypotension", "contraindication"],
+      ["Interacts with grapefruit", "interaction"],
+      ["Take once daily", "other"]
+    ]
+  },
+  {
+    "name": "Warfarin",
+    "drug_class": "Anticoagulant",
+    "facts": [
+      ["Vitamin K antagonist", "mechanism"],
+      ["Prevent thromboembolism", "indication"],
+      ["Bleeding", "side_effect"],
+      ["Pregnancy, active bleeding", "contraindication"],
+      ["Interacts with many drugs", "interaction"],
+      ["Monitor INR regularly", "other"]
+    ]
+  },
+  {
+    "name": "Furosemide",
+    "drug_class": "Loop diuretic",
+    "facts": [
+      ["Inhibits Na+/K+/2Cl− symporter", "mechanism"],
+      ["Edema, HTN", "indication"],
+      ["Hypokalemia, dehydration", "side_effect"],
+      ["Anuria", "contraindication"],
+      ["NSAIDs may reduce effect", "interaction"],
+      ["Take in morning", "other"]
+    ]
+  },
+  {
+    "name": "Prednisone",
+    "drug_class": "Glucocorticoid",
+    "facts": [
+      ["Anti-inflammatory and immunosuppressive", "mechanism"],
+      ["Inflammatory diseases", "indication"],
+      ["Hyperglycemia, weight gain", "side_effect"],
+      ["Systemic fungal infection", "contraindication"],
+      ["Interactions with vaccines", "interaction"],
+      ["Take with food", "other"]
+    ]
+  },
+  {
+    "name": "Simvastatin",
+    "drug_class": "HMG-CoA reductase inhibitor",
+    "facts": [
+      ["Inhibits cholesterol synthesis", "mechanism"],
+      ["Hyperlipidemia, CAD prevention", "indication"],
+      ["Myalgia, liver enzyme elevation", "side_effect"],
+      ["Active liver disease", "contraindication"],
+      ["Grapefruit increases levels", "interaction"],
+      ["Take in evening", "other"]
+    ]
+  },
+  {
+    "name": "Albuterol",
+    "drug_class": "Beta-2 agonist",
+    "facts": [
+      ["Stimulates beta-2 receptors", "mechanism"],
+      ["Asthma, COPD", "indication"],
+      ["Tachycardia, tremor", "side_effect"],
+      ["Cardiac arrhythmias", "contraindication"],
+      ["Other sympathomimetics", "interaction"],
+      ["Use as inhaled", "other"]
+    ]
+  },
+  {
+    "name": "Omeprazole",
+    "drug_class": "Proton pump inhibitor",
+    "facts": [
+      ["Inhibits H+/K+ ATPase", "mechanism"],
+      ["GERD, ulcers", "indication"],
+      ["Headache, diarrhea", "side_effect"],
+      ["Known hypersensitivity", "contraindication"],
+      ["Clopidogrel may interact", "interaction"],
+      ["Take 30-60 min before meal", "other"]
+    ]
+  }
+]

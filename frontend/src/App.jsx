@@ -24,6 +24,7 @@ import PTHealthcare from "./components/pthealthcare/PTHealthcare";
 import PTHealthcareFillInQuiz from "./components/pthealthcare/PTHealthcareFillInQuiz";
 import PTHealthcareDrugReference from "./components/pthealthcare/PTHealthcareDrugReference";
 import PTDrugFlashcards from "./components/pthealthcare/PTDrugFlashcards";
+import PTReference from "./components/pthealthcare/PTReference";
 
 function App() {
   const [theme, setTheme] = useState("light-theme");
@@ -112,6 +113,8 @@ function App() {
             element={<PTHealthcareDrugReference />}
           />
           <Route path="/pt-flashcards" element={<PTDrugFlashcards />} />
+          <Route path="/pt-reference" element={<PTReference />} />
+
           {/* <Route path="/pthealthcare" element={<PTHealthcare />} /> */}
 
           {/* Profile (requires login) */}

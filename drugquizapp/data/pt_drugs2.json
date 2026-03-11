@@ -1,0 +1,680 @@
+[
+  {
+    "name": "Gabapentin",
+    "drug_class": "Anticonvulsant",
+    "facts": [
+      ["Modulates calcium channels in CNS", "mechanism"],
+      ["Neuropathic pain, seizures", "indication"],
+      ["Drowsiness, dizziness", "side_effect"],
+      ["Hypersensitivity", "contraindication"],
+      ["CNS depressants", "interaction"],
+      ["Take with food", "other"]
+    ]
+  },
+  {
+    "name": "Pregabalin",
+    "drug_class": "Anticonvulsant",
+    "facts": [
+      ["Binds calcium channels in CNS", "mechanism"],
+      ["Neuropathic pain, fibromyalgia", "indication"],
+      ["Dizziness, weight gain", "side_effect"],
+      ["Hypersensitivity", "contraindication"],
+      ["CNS depressants", "interaction"],
+      ["Take at same time daily", "other"]
+    ]
+  },
+  {
+    "name": "Duloxetine",
+    "drug_class": "SNRI antidepressant",
+    "facts": [
+      ["Inhibits serotonin and norepinephrine reuptake", "mechanism"],
+      ["Neuropathic pain, depression", "indication"],
+      ["Nausea, dry mouth", "side_effect"],
+      ["MAOI use, uncontrolled glaucoma", "contraindication"],
+      ["CYP1A2 inhibitors", "interaction"],
+      ["Take with food", "other"]
+    ]
+  },
+  {
+    "name": "Venlafaxine",
+    "drug_class": "SNRI antidepressant",
+    "facts": [
+      ["Inhibits serotonin and norepinephrine reuptake", "mechanism"],
+      ["Depression, anxiety", "indication"],
+      ["Hypertension, nausea", "side_effect"],
+      ["MAOI use, uncontrolled glaucoma", "contraindication"],
+      ["CYP2D6 inhibitors", "interaction"],
+      ["Take with food", "other"]
+    ]
+  },
+  {
+    "name": "Acetaminophen",
+    "drug_class": "Analgesic/Antipyretic",
+    "facts": [
+      ["Inhibits prostaglandin synthesis in CNS", "mechanism"],
+      ["Pain, fever", "indication"],
+      ["Hepatotoxicity in overdose", "side_effect"],
+      ["Severe liver disease", "contraindication"],
+      ["Alcohol", "interaction"],
+      ["Take with water", "other"]
+    ]
+  },
+  {
+    "name": "Topiramate",
+    "drug_class": "Anticonvulsant",
+    "facts": [
+      ["Blocks sodium channels, enhances GABA", "mechanism"],
+      ["Seizures, migraine prevention", "indication"],
+      ["Cognitive slowing, weight loss", "side_effect"],
+      ["Metabolic acidosis", "contraindication"],
+      ["Other anticonvulsants", "interaction"],
+      ["Take with food", "other"]
+    ]
+  },
+  {
+    "name": "Baclofen",
+    "drug_class": "Muscle relaxant",
+    "facts": [
+      ["GABA-B agonist", "mechanism"],
+      ["Spasticity", "indication"],
+      ["Drowsiness, dizziness", "side_effect"],
+      ["Hypersensitivity", "contraindication"],
+      ["CNS depressants", "interaction"],
+      ["Take with food", "other"]
+    ]
+  },
+  {
+    "name": "Diazepam",
+    "drug_class": "Benzodiazepine",
+    "facts": [
+      ["Enhances GABA-A activity", "mechanism"],
+      ["Muscle spasm, anxiety", "indication"],
+      ["Drowsiness, dependence", "side_effect"],
+      ["Respiratory depression, myasthenia gravis", "contraindication"],
+      ["CNS depressants", "interaction"],
+      ["Take at bedtime", "other"]
+    ]
+  },
+  {
+    "name": "Methocarbamol",
+    "drug_class": "Muscle relaxant",
+    "facts": [
+      ["Central nervous system depressant", "mechanism"],
+      ["Muscle spasm", "indication"],
+      ["Dizziness, drowsiness", "side_effect"],
+      ["Hypersensitivity", "contraindication"],
+      ["CNS depressants", "interaction"],
+      ["Take with food", "other"]
+    ]
+  },
+  {
+    "name": "Cyclobenzaprine",
+    "drug_class": "Muscle relaxant",
+    "facts": [
+      ["Acts on CNS to reduce muscle tone", "mechanism"],
+      ["Muscle spasm", "indication"],
+      ["Drowsiness, dry mouth", "side_effect"],
+      ["MAOI use, arrhythmias", "contraindication"],
+      ["CNS depressants", "interaction"],
+      ["Take at bedtime", "other"]
+    ]
+  },
+  {
+    "name": "Levothyroxine",
+    "drug_class": "Thyroid hormone",
+    "facts": [
+      ["Synthetic T4 hormone", "mechanism"],
+      ["Hypothyroidism", "indication"],
+      ["Palpitations, insomnia", "side_effect"],
+      ["Acute MI, thyrotoxicosis", "contraindication"],
+      ["Iron, calcium supplements", "interaction"],
+      ["Take on empty stomach", "other"]
+    ]
+  },
+  {
+    "name": "Alendronate",
+    "drug_class": "Bisphosphonate",
+    "facts": [
+      ["Inhibits osteoclast-mediated bone resorption", "mechanism"],
+      ["Osteoporosis", "indication"],
+      ["GI upset, esophagitis", "side_effect"],
+      ["Esophageal abnormalities", "contraindication"],
+      ["Calcium supplements", "interaction"],
+      ["Take on empty stomach with water", "other"]
+    ]
+  },
+  {
+    "name": "Risedronate",
+    "drug_class": "Bisphosphonate",
+    "facts": [
+      ["Inhibits osteoclast-mediated bone resorption", "mechanism"],
+      ["Osteoporosis", "indication"],
+      ["GI upset, esophagitis", "side_effect"],
+      ["Esophageal abnormalities", "contraindication"],
+      ["Calcium supplements", "interaction"],
+      ["Take on empty stomach with water", "other"]
+    ]
+  },
+  {
+    "name": "Allopurinol",
+    "drug_class": "Xanthine oxidase inhibitor",
+    "facts": [
+      ["Inhibits xanthine oxidase", "mechanism"],
+      ["Gout, hyperuricemia", "indication"],
+      ["Rash, GI upset", "side_effect"],
+      ["Hypersensitivity", "contraindication"],
+      ["Azathioprine", "interaction"],
+      ["Take after meals", "other"]
+    ]
+  },
+  {
+    "name": "Colchicine",
+    "drug_class": "Anti-gout",
+    "facts": [
+      ["Inhibits microtubule polymerization", "mechanism"],
+      ["Acute gout flare", "indication"],
+      ["Diarrhea, nausea", "side_effect"],
+      ["Severe renal or hepatic impairment", "contraindication"],
+      ["CYP3A4 inhibitors", "interaction"],
+      ["Take with food", "other"]
+    ]
+  },
+  {
+    "name": "Propranolol",
+    "drug_class": "Beta-blocker",
+    "facts": [
+      ["Non-selective beta-adrenergic antagonist", "mechanism"],
+      ["HTN, angina, arrhythmia", "indication"],
+      ["Bradycardia, fatigue", "side_effect"],
+      ["Asthma, bradycardia", "contraindication"],
+      ["CYP2D6 inhibitors", "interaction"],
+      ["Take with food", "other"]
+    ]
+  },
+  {
+    "name": "Carvedilol",
+    "drug_class": "Beta-blocker",
+    "facts": [
+      ["Non-selective beta and alpha-1 antagonist", "mechanism"],
+      ["HTN, heart failure", "indication"],
+      ["Bradycardia, hypotension", "side_effect"],
+      ["Asthma, severe liver disease", "contraindication"],
+      ["CYP2D6 inhibitors", "interaction"],
+      ["Take with food", "other"]
+    ]
+  },
+  {
+    "name": "Spironolactone",
+    "drug_class": "Potassium-sparing diuretic",
+    "facts": [
+      ["Aldosterone antagonist", "mechanism"],
+      ["Edema, heart failure, HTN", "indication"],
+      ["Hyperkalemia, gynecomastia", "side_effect"],
+      ["Anuria, renal failure", "contraindication"],
+      ["ACE inhibitors, potassium supplements", "interaction"],
+      ["Take in morning", "other"]
+    ]
+  },
+  {
+    "name": "Hydrochlorothiazide",
+    "drug_class": "Thiazide diuretic",
+    "facts": [
+      ["Inhibits Na+/Cl- reabsorption in distal tubule", "mechanism"],
+      ["HTN, edema", "indication"],
+      ["Hypokalemia, hyperuricemia", "side_effect"],
+      ["Anuria, hypersensitivity", "contraindication"],
+      ["NSAIDs", "interaction"],
+      ["Take in morning", "other"]
+    ]
+  },
+  {
+    "name": "Fentanyl",
+    "drug_class": "Opioid analgesic",
+    "facts": [
+      ["Opioid receptor agonist", "mechanism"],
+      ["Severe pain", "indication"],
+      ["Respiratory depression, sedation", "side_effect"],
+      ["Respiratory depression, MAOI use", "contraindication"],
+      ["CNS depressants", "interaction"],
+      ["Use as directed", "other"]
+    ]
+  },
+  {
+    "name": "Morphine",
+    "drug_class": "Opioid analgesic",
+    "facts": [
+      ["Opioid receptor agonist", "mechanism"],
+      ["Severe pain", "indication"],
+      ["Constipation, sedation", "side_effect"],
+      ["Respiratory depression, acute asthma", "contraindication"],
+      ["CNS depressants", "interaction"],
+      ["Take with water", "other"]
+    ]
+  },
+  {
+    "name": "Oxycodone",
+    "drug_class": "Opioid analgesic",
+    "facts": [
+      ["Opioid receptor agonist", "mechanism"],
+      ["Moderate to severe pain", "indication"],
+      ["Constipation, nausea", "side_effect"],
+      ["Respiratory depression, paralytic ileus", "contraindication"],
+      ["CYP3A4 inhibitors", "interaction"],
+      ["Take with food", "other"]
+    ]
+  },
+  {
+    "name": "Tramadol",
+    "drug_class": "Opioid analgesic",
+    "facts": [
+      [
+        "Mu-opioid agonist and inhibits norepinephrine/serotonin reuptake",
+        "mechanism"
+      ],
+      ["Moderate pain", "indication"],
+      ["Dizziness, nausea", "side_effect"],
+      ["Seizure disorder, MAOI use", "contraindication"],
+      ["CYP2D6 inhibitors", "interaction"],
+      ["Take with food", "other"]
+    ]
+  },
+  {
+    "name": "Dantrolene",
+    "drug_class": "Muscle relaxant",
+    "facts": [
+      ["Directly relaxes skeletal muscle", "mechanism"],
+      ["Spasticity, malignant hyperthermia", "indication"],
+      ["Hepatotoxicity, weakness", "side_effect"],
+      ["Active liver disease", "contraindication"],
+      ["CNS depressants", "interaction"],
+      ["Take with food", "other"]
+    ]
+  },
+  {
+    "name": "Tizanidine",
+    "drug_class": "Muscle relaxant",
+    "facts": [
+      ["Alpha-2 adrenergic agonist", "mechanism"],
+      ["Spasticity", "indication"],
+      ["Hypotension, dizziness", "side_effect"],
+      ["Hypersensitivity, liver disease", "contraindication"],
+      ["CYP1A2 inhibitors", "interaction"],
+      ["Take with water", "other"]
+    ]
+  },
+  {
+    "name": "Clonazepam",
+    "drug_class": "Benzodiazepine",
+    "facts": [
+      ["Enhances GABA activity", "mechanism"],
+      ["Seizures, anxiety, spasticity", "indication"],
+      ["Drowsiness, ataxia", "side_effect"],
+      ["Acute narrow-angle glaucoma", "contraindication"],
+      ["CNS depressants", "interaction"],
+      ["Take at bedtime", "other"]
+    ]
+  },
+  {
+    "name": "Methylprednisolone",
+    "drug_class": "Glucocorticoid",
+    "facts": [
+      ["Anti-inflammatory and immunosuppressive", "mechanism"],
+      ["Inflammatory conditions", "indication"],
+      ["Hyperglycemia, weight gain", "side_effect"],
+      ["Systemic fungal infection", "contraindication"],
+      ["CYP3A4 inducers/inhibitors", "interaction"],
+      ["Take with food", "other"]
+    ]
+  },
+  {
+    "name": "Hydrocortisone",
+    "drug_class": "Glucocorticoid",
+    "facts": [
+      ["Anti-inflammatory and immunosuppressive", "mechanism"],
+      ["Adrenal insufficiency, inflammation", "indication"],
+      ["Hyperglycemia, fluid retention", "side_effect"],
+      ["Systemic fungal infection", "contraindication"],
+      ["CYP3A4 inducers/inhibitors", "interaction"],
+      ["Take with food", "other"]
+    ]
+  },
+  {
+    "name": "Ciprofloxacin",
+    "drug_class": "Fluoroquinolone antibiotic",
+    "facts": [
+      ["Inhibits bacterial DNA gyrase", "mechanism"],
+      ["Bacterial infections", "indication"],
+      ["GI upset, tendonitis", "side_effect"],
+      ["Hypersensitivity, myasthenia gravis", "contraindication"],
+      ["Antacids, NSAIDs", "interaction"],
+      ["Take on empty stomach", "other"]
+    ]
+  },
+  {
+    "name": "Levofloxacin",
+    "drug_class": "Fluoroquinolone antibiotic",
+    "facts": [
+      ["Inhibits bacterial DNA gyrase", "mechanism"],
+      ["Bacterial infections", "indication"],
+      ["GI upset, tendonitis", "side_effect"],
+      ["Hypersensitivity, myasthenia gravis", "contraindication"],
+      ["Antacids, NSAIDs", "interaction"],
+      ["Take on empty stomach", "other"]
+    ]
+  },
+  {
+    "name": "Amoxicillin",
+    "drug_class": "Penicillin antibiotic",
+    "facts": [
+      ["Inhibits bacterial cell wall synthesis", "mechanism"],
+      ["Bacterial infections", "indication"],
+      ["Rash, diarrhea", "side_effect"],
+      ["Penicillin allergy", "contraindication"],
+      ["Oral contraceptives", "interaction"],
+      ["Take with food", "other"]
+    ]
+  },
+  {
+    "name": "Clindamycin",
+    "drug_class": "Lincosamide antibiotic",
+    "facts": [
+      ["Inhibits bacterial protein synthesis", "mechanism"],
+      ["Bacterial infections", "indication"],
+      ["Diarrhea, rash", "side_effect"],
+      ["Hypersensitivity", "contraindication"],
+      ["CYP3A4 substrates", "interaction"],
+      ["Take with water", "other"]
+    ]
+  },
+  {
+    "name": "Azithromycin",
+    "drug_class": "Macrolide antibiotic",
+    "facts": [
+      ["Inhibits bacterial protein synthesis", "mechanism"],
+      ["Bacterial infections", "indication"],
+      ["GI upset, QT prolongation", "side_effect"],
+      ["Hypersensitivity", "contraindication"],
+      ["CYP3A4 substrates", "interaction"],
+      ["Take on empty stomach", "other"]
+    ]
+  },
+  {
+    "name": "Nitrofurantoin",
+    "drug_class": "Antibiotic",
+    "facts": [
+      ["Inhibits bacterial enzymes", "mechanism"],
+      ["UTI", "indication"],
+      ["GI upset, pulmonary reactions", "side_effect"],
+      ["Renal impairment", "contraindication"],
+      ["Antacids", "interaction"],
+      ["Take with food", "other"]
+    ]
+  },
+  {
+    "name": "Phenobarbital",
+    "drug_class": "Barbiturate",
+    "facts": [
+      ["Enhances GABA activity", "mechanism"],
+      ["Seizures", "indication"],
+      ["Sedation, dependence", "side_effect"],
+      ["Respiratory depression", "contraindication"],
+      ["CNS depressants", "interaction"],
+      ["Take at bedtime", "other"]
+    ]
+  },
+  {
+    "name": "Phenytoin",
+    "drug_class": "Anticonvulsant",
+    "facts": [
+      ["Stabilizes neuronal membranes by inhibiting Na+ channels", "mechanism"],
+      ["Seizures", "indication"],
+      ["Gingival hyperplasia, dizziness", "side_effect"],
+      ["Hypersensitivity", "contraindication"],
+      ["CYP2C9/19 substrates", "interaction"],
+      ["Take with food", "other"]
+    ]
+  },
+  {
+    "name": "Gabapentin",
+    "drug_class": "Anticonvulsant / Neuropathic pain agent",
+    "facts": [
+      ["Modulates calcium channels in CNS", "mechanism"],
+      ["Neuropathic pain, seizures", "indication"],
+      ["Dizziness, somnolence", "side_effect"],
+      ["Hypersensitivity", "contraindication"],
+      ["CNS depressants", "interaction"],
+      ["Take with or without food", "other"]
+    ]
+  },
+  {
+    "name": "Pregabalin",
+    "drug_class": "Anticonvulsant / Neuropathic pain agent",
+    "facts": [
+      ["Binds alpha-2-delta subunit of calcium channels", "mechanism"],
+      ["Neuropathic pain, fibromyalgia, seizures", "indication"],
+      ["Dizziness, somnolence, edema", "side_effect"],
+      ["Hypersensitivity", "contraindication"],
+      ["CNS depressants", "interaction"],
+      ["Take with or without food", "other"]
+    ]
+  },
+  {
+    "name": "Duloxetine",
+    "drug_class": "SNRI antidepressant",
+    "facts": [
+      ["Inhibits serotonin and norepinephrine reuptake", "mechanism"],
+      ["Depression, neuropathic pain, anxiety", "indication"],
+      ["Nausea, dry mouth, fatigue", "side_effect"],
+      ["MAOI use, uncontrolled narrow-angle glaucoma", "contraindication"],
+      ["CYP1A2/CYP2D6 inhibitors", "interaction"],
+      ["Take with food", "other"]
+    ]
+  },
+  {
+    "name": "Venlafaxine",
+    "drug_class": "SNRI antidepressant",
+    "facts": [
+      ["Inhibits serotonin and norepinephrine reuptake", "mechanism"],
+      ["Depression, anxiety, neuropathic pain", "indication"],
+      ["Nausea, insomnia, sweating", "side_effect"],
+      ["MAOI use, hypersensitivity", "contraindication"],
+      ["CYP2D6 inhibitors", "interaction"],
+      ["Take with food", "other"]
+    ]
+  },
+  {
+    "name": "Sertraline",
+    "drug_class": "SSRI antidepressant",
+    "facts": [
+      ["Inhibits serotonin reuptake", "mechanism"],
+      ["Depression, anxiety, PTSD", "indication"],
+      ["Nausea, diarrhea, insomnia", "side_effect"],
+      ["MAOI use, hypersensitivity", "contraindication"],
+      ["CYP2D6 inhibitors", "interaction"],
+      ["Take with or without food", "other"]
+    ]
+  },
+  {
+    "name": "Escitalopram",
+    "drug_class": "SSRI antidepressant",
+    "facts": [
+      ["Inhibits serotonin reuptake", "mechanism"],
+      ["Depression, anxiety", "indication"],
+      ["Nausea, insomnia, fatigue", "side_effect"],
+      ["MAOI use, hypersensitivity", "contraindication"],
+      ["CYP3A4/CYP2C19 inhibitors", "interaction"],
+      ["Take with or without food", "other"]
+    ]
+  },
+  {
+    "name": "Lorazepam",
+    "drug_class": "Benzodiazepine",
+    "facts": [
+      ["Enhances GABA activity", "mechanism"],
+      ["Anxiety, sedation, seizures", "indication"],
+      ["Drowsiness, dizziness", "side_effect"],
+      ["Acute narrow-angle glaucoma", "contraindication"],
+      ["CNS depressants", "interaction"],
+      ["Take at bedtime", "other"]
+    ]
+  },
+  {
+    "name": "Alprazolam",
+    "drug_class": "Benzodiazepine",
+    "facts": [
+      ["Enhances GABA activity", "mechanism"],
+      ["Anxiety, panic disorder", "indication"],
+      ["Drowsiness, fatigue", "side_effect"],
+      ["Acute narrow-angle glaucoma", "contraindication"],
+      ["CNS depressants", "interaction"],
+      ["Take with water", "other"]
+    ]
+  },
+  {
+    "name": "Citalopram",
+    "drug_class": "SSRI antidepressant",
+    "facts": [
+      ["Inhibits serotonin reuptake", "mechanism"],
+      ["Depression, anxiety", "indication"],
+      ["Nausea, somnolence, dry mouth", "side_effect"],
+      ["MAOI use, hypersensitivity", "contraindication"],
+      ["CYP2C19 inhibitors", "interaction"],
+      ["Take with or without food", "other"]
+    ]
+  },
+  {
+    "name": "Ropinirole",
+    "drug_class": "Dopamine agonist",
+    "facts": [
+      ["Dopamine D2/D3 receptor agonist", "mechanism"],
+      ["Parkinson’s disease, restless legs syndrome", "indication"],
+      ["Nausea, dizziness, somnolence", "side_effect"],
+      ["Hypersensitivity", "contraindication"],
+      ["CYP1A2 inhibitors", "interaction"],
+      ["Take with food", "other"]
+    ]
+  },
+  {
+    "name": "Pramipexole",
+    "drug_class": "Dopamine agonist",
+    "facts": [
+      ["Dopamine D2/D3 receptor agonist", "mechanism"],
+      ["Parkinson’s disease, restless legs syndrome", "indication"],
+      ["Dizziness, somnolence, hypotension", "side_effect"],
+      ["Hypersensitivity", "contraindication"],
+      ["CYP1A2 inhibitors", "interaction"],
+      ["Take with food", "other"]
+    ]
+  },
+  {
+    "name": "Carbidopa/Levodopa",
+    "drug_class": "Dopaminergic agent",
+    "facts": [
+      [
+        "Levodopa converted to dopamine, carbidopa inhibits peripheral metabolism",
+        "mechanism"
+      ],
+      ["Parkinson’s disease", "indication"],
+      ["Nausea, dyskinesia", "side_effect"],
+      ["MAOI use, hypersensitivity", "contraindication"],
+      ["Iron supplements", "interaction"],
+      ["Take on empty stomach", "other"]
+    ]
+  },
+  {
+    "name": "Donepezil",
+    "drug_class": "Cholinesterase inhibitor",
+    "facts": [
+      ["Inhibits acetylcholinesterase", "mechanism"],
+      ["Alzheimer’s disease", "indication"],
+      ["Nausea, diarrhea, insomnia", "side_effect"],
+      ["Hypersensitivity", "contraindication"],
+      ["Cholinergic drugs", "interaction"],
+      ["Take at bedtime", "other"]
+    ]
+  },
+  {
+    "name": "Memantine",
+    "drug_class": "NMDA receptor antagonist",
+    "facts": [
+      ["NMDA receptor antagonist", "mechanism"],
+      ["Alzheimer’s disease", "indication"],
+      ["Dizziness, headache", "side_effect"],
+      ["Hypersensitivity", "contraindication"],
+      ["Sodium bicarbonate", "interaction"],
+      ["Take with or without food", "other"]
+    ]
+  },
+  {
+    "name": "Rivastigmine",
+    "drug_class": "Cholinesterase inhibitor",
+    "facts": [
+      ["Inhibits acetylcholinesterase", "mechanism"],
+      ["Alzheimer’s disease, Parkinson’s dementia", "indication"],
+      ["Nausea, vomiting, dizziness", "side_effect"],
+      ["Hypersensitivity", "contraindication"],
+      ["Cholinergic drugs", "interaction"],
+      ["Take with food", "other"]
+    ]
+  },
+  {
+    "name": "Sildenafil",
+    "drug_class": "PDE5 inhibitor",
+    "facts": [
+      ["Inhibits phosphodiesterase type 5", "mechanism"],
+      ["Erectile dysfunction, pulmonary HTN", "indication"],
+      ["Headache, flushing", "side_effect"],
+      ["Nitrate therapy", "contraindication"],
+      ["CYP3A4 inhibitors", "interaction"],
+      ["Take 30–60 min before activity", "other"]
+    ]
+  },
+  {
+    "name": "Tadalafil",
+    "drug_class": "PDE5 inhibitor",
+    "facts": [
+      ["Inhibits phosphodiesterase type 5", "mechanism"],
+      ["Erectile dysfunction, pulmonary HTN", "indication"],
+      ["Headache, flushing", "side_effect"],
+      ["Nitrate therapy", "contraindication"],
+      ["CYP3A4 inhibitors", "interaction"],
+      ["Take 30–60 min before activity", "other"]
+    ]
+  },
+  {
+    "name": "Allopurinol",
+    "drug_class": "Xanthine oxidase inhibitor",
+    "facts": [
+      ["Inhibits xanthine oxidase", "mechanism"],
+      ["Gout prophylaxis", "indication"],
+      ["Rash, GI upset", "side_effect"],
+      ["Hypersensitivity", "contraindication"],
+      ["Azathioprine, mercaptopurine", "interaction"],
+      ["Take after meals", "other"]
+    ]
+  },
+  {
+    "name": "Colchicine",
+    "drug_class": "Anti-gout agent",
+    "facts": [
+      ["Inhibits microtubule polymerization", "mechanism"],
+      ["Acute gout flares", "indication"],
+      ["Diarrhea, nausea", "side_effect"],
+      ["Severe renal/hepatic impairment", "contraindication"],
+      ["CYP3A4 inhibitors", "interaction"],
+      ["Take with food", "other"]
+    ]
+  },
+  {
+    "name": "Methotrexate",
+    "drug_class": "Antimetabolite / Immunosuppressant",
+    "facts": [
+      ["Inhibits dihydrofolate reductase", "mechanism"],
+      ["RA, psoriasis, cancer", "indication"],
+      ["Hepatotoxicity, stomatitis", "side_effect"],
+      ["Pregnancy, liver disease", "contraindication"],
+      ["NSAIDs, sulfonamides", "interaction"],
+      ["Take with folic acid", "other"]
+    ]
+  }
+]

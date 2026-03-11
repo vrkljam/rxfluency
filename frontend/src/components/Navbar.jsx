@@ -38,6 +38,9 @@ const Navbar = ({ theme, setTheme }) => {
         <Link to="/pt-drug-reference" className="btn btn-outline-dark">
           PT Drug Reference
         </Link>
+        <Link className="btn btn-outline-dark" to="/pt-reference">
+          PT Drug Reference
+        </Link>
         <Link className="btn btn-outline-dark" to="/pt-flashcards">
           PT Flashcards
         </Link>

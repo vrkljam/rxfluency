@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+import api from "../../api/api";
 import "./ptflashcards.css";
 
 function PTDrugFlashcards() {
@@ -8,8 +8,8 @@ function PTDrugFlashcards() {
   const [flipped, setFlipped] = useState(false);
 
   useEffect(() => {
-    axios
-      .get("http://localhost:8000/api/pthealthcare/drugs/")
+    api
+      .get("/pthealthcare/drugs/")
       .then((res) => setDrugs(res.data))
       .catch((err) => console.error(err));
   }, []);

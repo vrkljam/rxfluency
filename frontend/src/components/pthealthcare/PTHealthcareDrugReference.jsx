@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+import api from "../../api/api";
 
 function PTHealthcareDrugReference() {
   const [drugs, setDrugs] = useState([]);
@@ -10,8 +10,8 @@ function PTHealthcareDrugReference() {
   const [selectedClass, setSelectedClass] = useState("All");
 
   useEffect(() => {
-    axios
-      .get("http://localhost:8000/api/pthealthcare/drugs/")
+    api
+      .get("/pthealthcare/drugs/")
       .then((res) => {
         setDrugs(res.data);
         setLoading(false);

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+import api from "../../api/api";
 
 // Shuffle array helper
 function shuffleArray(array) {
@@ -16,8 +16,8 @@ function PTHealthcareFillInQuiz() {
 
   // Load all drugs from API
   useEffect(() => {
-    axios
-      .get("http://localhost:8000/api/pthealthcare/drugs/")
+    api
+      .get("/pthealthcare/drugs/")
       .then((res) => {
         setDrugs(shuffleArray(res.data));
       })
