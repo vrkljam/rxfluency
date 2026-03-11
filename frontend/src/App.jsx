@@ -17,7 +17,7 @@ import QuizNew2 from "./components/QuizNew2";
 import ProtectedRoute from "./routes/ProtectedRoute";
 
 import AdminRoute from "./routes/AdminRoute";
-import Flashcards from "./components/flashcards/FlashCards";
+import Flashcards from "./components/flashcards/Flashcards";
 import PTHealthcareQuiz from "./components/pthealthcare/PTHealthcareQuiz";
 import PTHealthcareAdmin from "./pages/PTHealthcareAdmin";
 import PTHealthcare from "./components/pthealthcare/PTHealthcare";
