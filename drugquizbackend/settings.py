@@ -25,8 +25,8 @@ SECRET_KEY = os.getenv("DJANGO_SECRET_KEY")
 
 DEBUG = os.getenv("DEBUG", "False") == "True"
 
-ALLOWED_HOSTS = ['*']
-# ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "localhost").split(",")
+
+ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "localhost").split(",")
 # ALLOWED_HOSTS = ["rxfluency.onrender.com", "localhost", "127.0.0.1"]
 
 OPENFDA_API_KEY = os.getenv("OPENFDA_API_KEY")
@@ -76,7 +76,7 @@ ROOT_URLCONF = 'drugquizbackend.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / "frontend" / "dist"],  # <--- add the React build dir here
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -179,10 +179,8 @@ SIMPLE_JWT = { #new
     'AUTH_HEADER_TYPES': ('Bearer',)
 }
 
-STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
-
 STATICFILES_DIRS = [
-    BASE_DIR / "frontend" / "dist",
+    BASE_DIR / "frontend" / "dist" / "assets",
 ]
 
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
