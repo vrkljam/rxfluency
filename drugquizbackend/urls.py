@@ -16,8 +16,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include, re_path
-from django.http import HttpResponse
-from loginout.views import RegisterView,ProfileView,LogoutView
+# from django.http import HttpResponse
+# from loginout.views import RegisterView,ProfileView,LogoutView
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
 
@@ -26,7 +26,7 @@ from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 #     return HttpResponse("Hello 👋 Drug quiz backend is running.")
 
 urlpatterns = [
-    path('', home),
+    
     path('admin/', admin.site.urls),
     path('api/', include('drugquizapp.urls')),
     path('api/pthealthcare/', include('pthealthcare.urls')),
