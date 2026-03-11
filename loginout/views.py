@@ -10,6 +10,10 @@ from rest_framework_simplejwt.tokens import RefreshToken
 from .serializers import RegisterSerializer,UserSerializer
 
 
+from django.views.decorators.csrf import csrf_exempt
+from django.utils.decorators import method_decorator
+
+@method_decorator(csrf_exempt, name='dispatch')
 class RegisterView(APIView):
     permission_classes = [AllowAny]
     def post(self,request):
@@ -23,7 +27,8 @@ class RegisterView(APIView):
                 "message":"User created successfully",            
             }, status= status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-    
+
+@method_decorator(csrf_exempt, name='dispatch')    
 class LogoutView(APIView):
     permission_classes = [IsAuthenticated]
     
