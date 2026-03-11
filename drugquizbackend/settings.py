@@ -25,7 +25,9 @@ SECRET_KEY = os.getenv("DJANGO_SECRET_KEY")
 
 DEBUG = os.getenv("DEBUG", "False") == "True"
 
-ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "localhost").split(",")
+ALLOWED_HOSTS = ['*']
+# ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "localhost").split(",")
+# ALLOWED_HOSTS = ["rxfluency.onrender.com", "localhost", "127.0.0.1"]
 
 OPENFDA_API_KEY = os.getenv("OPENFDA_API_KEY")
 
