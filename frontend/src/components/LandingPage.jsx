@@ -4,7 +4,7 @@ const LandingPage = () => {
       {/* HERO */}
       <div className="landing">
         <div className="landing-overlay">
-          <h1 className="landing-title">RxFluent</h1>
+          <h1 className="landing-title">RxFluency</h1>
 
           <p className="landing-subtitle">Become fluent in medication names.</p>
 
@@ -19,7 +19,7 @@ const LandingPage = () => {
           {/* BLURB SECTION */}
           <section className="landing-blurb">
             <div className="landing-blurb-inner">
-              <h2>What is RxFluent?</h2>
+              <h2>What is RxFluency?</h2>
 
               <p>
                 RxFluent helps you become fluent in medication names through

@@ -16,22 +16,5 @@ class DrugSerializer(serializers.ModelSerializer):
     classes = DrugClassSerializer(many=True, read_only=True)  # nested serializer
     class Meta:
         model = Drug
-        fields = ["id", "brands", "generic_name", "classes", "is_top_200","is_combination", "is_verified", "description"]
-
-
-# class DrugSerializer(serializers.ModelSerializer):
-#     class Meta:
-#         model = Drug
-#         fields = "__all__"
-
-
-# from rest_framework import serializers
-# from .models import DrugPair
-
-
-# class DrugPairSerializer(serializers.ModelSerializer):
-#     class Meta:
-#         model = DrugPair
-#         fields = ['id', 'brand_name', 'generic_name','is_verified']
-        
+        fields = ["id", "brands", "generic_name", "classes", "is_top_200","is_combination", "is_verified", "description"]     
 

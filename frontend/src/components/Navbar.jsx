@@ -9,8 +9,17 @@ const Navbar = ({ theme, setTheme }) => {
   const toggleTheme = () => {
     setTheme(theme === "light-theme" ? "dark-theme" : "light-theme");
   };
-  const navBtn = (path) =>
-    `btn btn-sm me-2 ${pathname === path ? "btn-outline-light" : "btn-outline-light"}`;
+  // const navBtn = (path) =>
+  //   `btn btn-sm me-2 ${pathname === path ? "btn-light" : "btn-outline-light"}`;
+
+  const navBtn = (path) => {
+    const isActive = pathname === path;
+    return `
+    btn btn-sm me-2 rounded-pill nav-btn
+    ${isActive ? "btn-glossy shadow-lg" : "btn-outline-light text-light nav-btn"}
+    border-2
+  `;
+  };
 
   return (
     <nav
@@ -19,7 +28,7 @@ const Navbar = ({ theme, setTheme }) => {
       }`}
     >
       <Link className="navbar-brand" to="/">
-        NewDrugQuiz
+        RxFluency
       </Link>
 
       <div className="ms-4">
