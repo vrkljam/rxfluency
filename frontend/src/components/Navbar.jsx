@@ -12,14 +12,12 @@ const Navbar = ({ theme, setTheme }) => {
   // const navBtn = (path) =>
   //   `btn btn-sm me-2 ${pathname === path ? "btn-light" : "btn-outline-light"}`;
 
-  const navBtn = (path) => {
-    const isActive = pathname === path;
-    return `
-    btn btn-sm me-2 rounded-pill nav-btn
-    ${isActive ? "btn-glossy shadow-lg" : "btn-outline-light text-light nav-btn"}
-    border-2
-  `;
-  };
+  const navBtn = (path) =>
+    `btn btn-sm me-2 rounded-pill nav-btn ${
+      pathname === path
+        ? "btn-glossy shadow-lg border-2 active-nav"
+        : "btn-outline-light text-light border-2"
+    }`;
 
   return (
     <nav

@@ -1,0 +1,691 @@
+/* ----------------- Global ----------------- */
+:root {
+  font-family: "Inter", system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #242424;
+  color: rgba(255, 255, 255, 0.87);
+}
+html,
+body,
+#root {
+  height: 100%;
+}
+
+/* -----------------light and dark theme------------------------------ */
+
+/* ------------------ BODY ------------------ */
+body.light-theme {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #4e73df, #1cc88a);
+  color: #1a1a1a; /* dark text */
+  transition:
+    background 0.3s ease,
+    color 0.3s ease;
+}
+
+body.dark-theme {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0d3b66, #118c4f);
+  color: #f1f1f1; /* light text */
+  transition:
+    background 0.3s ease,
+    color 0.3s ease;
+}
+
+/* Navbar light-mode green */
+.navbar-light-green {
+  background-color: #0ab9f3;
+  color: #f8f9fa; /* light text for brand and links */
+}
+
+.navbar-light-green .navbar-brand,
+.navbar-light-green .nav-link,
+.navbar-light-green .btn {
+  color: #f8f9fa;
+}
+
+.navbar-light-green .nav-link:hover {
+  color: #ffffffcc; /* slightly brighter on hover */
+}
+
+/* Navbar buttons for light mode */
+.navbar-light-custom .btn {
+  color: #f8f9fa; /* light text */
+  background-color: transparent;
+  border: 1px solid #f8f9fa; /* outline matches text */
+  transition: all 0.3s ease;
+}
+
+.navbar-light-custom .btn:hover {
+  background-color: #ffffff33; /* subtle light overlay on hover */
+  color: #ffffff; /* text stays readable */
+  border-color: #ffffff; /* outline also highlights */
+}
+
+/* ------------------ CARD / CONTAINER ------------------ */
+.light-theme .card {
+  background-color: rgba(255, 255, 255, 0.85);
+  border: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  color: #1a1a1a;
+}
+
+.dark-theme .card {
+  background-color: rgba(0, 0, 0, 0.6);
+  border: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+  color: #f1f1f1;
+}
+
+/* ------------------ NAVBAR ------------------ */
+/* .light-theme .navbar {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+  color: #1a1a1a;
+} */
+
+.dark-theme .navbar {
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+  color: #f1f1f1;
+}
+
+/* ------------------ NAVBAR SHADOW & SEPARATION ------------------ */
+
+/* Light theme navbar shadow & slight gradient */
+.light-theme .navbar-light-green {
+  background-color: rgba(10, 185, 243, 0.85); /* 85% opaque */
+  backdrop-filter: blur(6px); /* optional: blur background behind navbar */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+/* Dark theme navbar shadow */
+.dark-theme .navbar {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.25); /* slightly stronger for dark */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05); /* subtle separation */
+  transition: all 0.3s ease;
+}
+
+/* ------------------ LINKS ------------------ */
+.light-theme a {
+  color: #b70b0b;
+}
+
+.light-theme a:hover {
+  color: #4e73df;
+}
+
+.dark-theme a {
+  color: #1cc88a;
+}
+
+.dark-theme a:hover {
+  color: #0d3b66;
+}
+
+/* ------------------ FORM ELEMENTS ------------------ */
+.light-theme input,
+.light-theme textarea,
+.light-theme select {
+  background-color: #fff;
+  color: #1a1a1a;
+  border: 1px solid #ccc;
+}
+
+.dark-theme input,
+.dark-theme textarea,
+.dark-theme select {
+  background-color: #333;
+  color: #f1f1f1;
+  border: 1px solid #555;
+}
+
+/* Placeholder text */
+.light-theme input::placeholder,
+.light-theme textarea::placeholder {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.dark-theme input::placeholder,
+.dark-theme textarea::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Form labels */
+.light-theme label {
+  color: #1a1a1a;
+}
+
+.dark-theme label {
+  color: #f1f1f1;
+}
+
+.cardStyleTime {
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #4e73df, #1cc88a);
+  color: white;
+  font-weight: 600;
+  min-width: 120px;
+  flex: 1;
+}
+
+/* ------------------ BUTTONS ------------------ */
+.light-theme .btn {
+  color: #fff;
+  background-color: #4e73df;
+  border: none;
+}
+
+.dark-theme .btn {
+  color: #fff;
+  background-color: #0d3b66;
+  border: none;
+}
+
+/* Button hover effects */
+.light-theme .btn:hover {
+  background-color: #1cc88a;
+}
+
+.dark-theme .btn:hover {
+  background-color: #118c4f;
+}
+
+/* *********************************************** */
+
+/* Links */
+.navbar a {
+  color: inherit;
+  transition: color 0.3s;
+}
+.navbar a:hover {
+  color: #1cc88a; /* highlight in green for both themes */
+  background-color: rgba(255, 255, 255, 0.1); /* subtle highlight */
+}
+
+.btn-glossy {
+  position: relative;
+  background: linear-gradient(
+    145deg,
+    #4fc1b8,
+    #3aa797
+  ); /* base teal gradient */
+  color: #fff;
+  border: 1px solid #36938f;
+  border-radius: 50px; /* pill shape */
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.navbar .btn-glossy {
+  margin: 0 0.3rem; /* spacing between buttons */
+  padding: 0.45rem 1rem; /* consistent with your glossy buttons */
+}
+.btn-glossy::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50%; /* top half */
+  background: rgba(255, 255, 255, 0.25); /* highlight */
+  border-radius: 50px;
+  transform: translateY(-100%) skewY(-20deg);
+  pointer-events: none;
+  transition: transform 0.3s ease;
+}
+
+.btn-glossy:hover {
+  background: linear-gradient(
+    145deg,
+    #63d1c9,
+    #4fc1b8
+  ); /* slightly lighter teal */
+  transform: translateY(-2px); /* lift effect */
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.25);
+}
+
+.btn-glossy:hover::after {
+  transform: translateY(0) skewY(-20deg); /* slide down highlight */
+}
+
+.btn-glossy:active {
+  background: linear-gradient(
+    145deg,
+    #3aa797,
+    #2b7d73
+  ); /* darker teal for pressed */
+  transform: translateY(1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Base gradient button for both themes */
+.btn-gradient {
+  background: linear-gradient(45deg, #4e73df, #1cc88a);
+  color: white;
+  border: none;
+  transition: opacity 0.3s;
+}
+.btn-gradient:hover {
+  opacity: 0.85;
+}
+
+/* Optional: Dark theme variation for subtlety */
+.dark-theme .btn-gradient {
+  background: linear-gradient(45deg, #0d3b66, #118c4f);
+}
+
+/* ********************************************************** */
+
+.light-theme .sidebar-bg {
+  background-color: #add8e6; /* light blue */
+}
+
+.dark-theme .sidebar-bg {
+  background-color: #1e3a5f; /* dark blue for dark mode */
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+
+a:hover {
+  color: #535bf2;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Roboto Slab", serif; /* pharmacy-style font for headings */
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+
+button:hover {
+  border-color: #646cff;
+}
+
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
+
+/* ----------------- Flashcards ----------------- */
+.flashcard-container {
+  perspective: 1000px;
+}
+
+.flashcard-clip {
+  border-radius: 30px; /* or 55% if you want oval */
+  overflow: hidden; /* clip here */
+}
+.flashcard-big-container {
+  background-color: red;
+}
+
+.flashcard {
+  width: 100%;
+  min-height: 300px; /* bigger */
+  height: 300px;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+  cursor: pointer;
+  background: white;
+  /* overflow: hidden; */
+  /* transform-style: preserve-3d; */
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
+}
+
+.flashcard.flipped {
+  transform: rotateY(180deg);
+}
+
+.flashcard-face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  padding: 1rem;
+}
+
+.flashcard-front {
+  background: white;
+}
+
+.flashcard-back {
+  background: #f8f9fa;
+  transform: rotateY(180deg);
+}
+
+.flashcard-front,
+.flashcard-back {
+  width: 100%;
+  height: 100%;
+}
+.timer {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  border-radius: 0.25rem;
+  border: 2px solid #212529;
+  background-color: #f8f9fa;
+  color: #212529;
+  transition:
+    background-color 0.3s,
+    color 0.3s;
+}
+
+.timer.flash {
+  animation: flashRed 1s infinite;
+}
+
+@keyframes flashRed {
+  0%,
+  50%,
+  100% {
+    background-color: red;
+    color: white;
+  }
+  25%,
+  75% {
+    background-color: white;
+    color: red;
+  }
+}
+
+.fly-out {
+  animation: flyToConfident 0.3s ease forwards;
+}
+
+@keyframes flyToConfident {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-40px) scale(0.8);
+    opacity: 0;
+  }
+}
+
+.spinning {
+  animation: slotBlur 0.1s linear infinite;
+}
+
+@keyframes slotBlur {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(3px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+.spinning .flashcard-face {
+  filter: blur(2px);
+}
+
+/* ----------------- Sidebar & Main ----------------- */
+.sidebar {
+  width: 240px;
+  min-height: 100%;
+  background-color: #f8f9fa;
+}
+.sb-test {
+  color: orange;
+}
+
+/* main {
+  background-color: #0f69c3;
+  background: linear-gradient(135deg, #4e73df, #1cc88a);
+  width: 100%;
+  overflow-x: hidden;
+} */
+
+main {
+  width: 100%;
+  overflow-x: hidden;
+  background: transparent; /* Let body theme show through */
+}
+
+/* ----------------- Landing Page ----------------- */
+.landing {
+  height: 100vh;
+  background: url("/images/meds.jpeg") center / cover no-repeat;
+  position: relative;
+}
+
+.landing-overlay {
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 2rem;
+}
+
+.landing-title {
+  font-size: 6rem; /* bigger title */
+  font-weight: 700;
+  font-family: "Roboto Slab", serif;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+  color: white;
+}
+
+.landing-subtitle {
+  font-size: 1.8rem; /* thicker subtitle */
+  max-width: 600px;
+  margin: 1rem 0 2rem;
+  color: white;
+  font-weight: 600;
+  font-family: "Roboto Slab", serif;
+}
+
+.landing-blurb {
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  color: white;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 2rem;
+  padding: 1.5rem 2rem;
+  border-radius: 12px;
+  line-height: 1.5;
+  text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.6);
+  opacity: 0;
+  transform: translateY(20px);
+  animation:
+    blurbFadeIn 1s ease forwards,
+    blurbPulse 2s ease-in-out 1.5s infinite;
+}
+
+.landing-blurb h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: white;
+}
+
+.landing-blurb p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.selectable {
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.scale-up {
+  transform: scale(1.05);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
+}
+
+.scale-normal {
+  transform: scale(1);
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
+}
+
+@keyframes blurbFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes blurbPulse {
+  0%,
+  100% {
+    transform: scale(1);
+    filter: brightness(1);
+  }
+  50% {
+    transform: scale(1.03);
+    filter: brightness(1.15);
+  }
+}
+
+.landing-actions a.btn {
+  margin-top: 1rem;
+}
+
+.landing-footnote {
+  margin-top: 2rem;
+  font-size: 0.9rem;
+  opacity: 0.8;
+  color: white;
+}
+
+.app-footer {
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* semi-transparent black */
+  color: white;
+  padding: 1rem 2rem;
+  text-align: center;
+  font-size: 0.9rem;
+  /* position: absolute; overlay at bottom */
+  position: relative; /* overlay at bottom */
+  bottom: 0;
+  left: 0;
+  z-index: 10; /* ensure it sits above background */
+  backdrop-filter: blur(6px); /* optional: blur the background behind footer */
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.footer-links {
+  margin-bottom: 0.5rem;
+}
+
+.footer-links a {
+  color: #ffffff;
+  margin: 0 1rem;
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+.footer-links a:hover {
+  color: #646cff;
+}
+
+.footer-copy {
+  opacity: 0.8;
+}
+
+.no-pulse {
+  animation: blurbFadeIn 0.8s ease forwards;
+}
+
+/* ----------------- Drug Class Selector ----------------- */
+.class-button {
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  padding: 0.5rem 0.8rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  background-color: transparent;
+  color: white; /* default text for dark background */
+}
+
+.class-button:hover {
+  background-color: #28a745; /* green hover */
+  color: white;
+}
+
+.class-button.selected {
+  background-color: #218838; /* darker green when selected */
+  border-color: #1e7e34;
+  color: white;
+  font-weight: 600;
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.3);
+}
