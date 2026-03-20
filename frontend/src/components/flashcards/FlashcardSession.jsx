@@ -119,7 +119,10 @@ const FlashcardSession = ({
       />
 
       {/* Progress bar */}
-      <ProgressBar confidentCount={confidentCards.length} total={limit} />
+      <ProgressBar
+        current={confidentCards.length}
+        total={activeCards.length + confidentCards.length}
+      />
 
       {/* Flashcard */}
       <div

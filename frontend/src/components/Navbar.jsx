@@ -12,12 +12,15 @@ const Navbar = ({ theme, setTheme }) => {
   // const navBtn = (path) =>
   //   `btn btn-sm me-2 ${pathname === path ? "btn-light" : "btn-outline-light"}`;
 
+  // const navBtn = (path) =>
+  //   `btn-glossy btn btn-sm me-2 rounded-pill nav-btn ${
+  //     pathname === path
+  //       ? "btn-glossy shadow-lg border-2 active-nav"
+  //       : "btn-outline-light text-light border-2"
+  //   }`;
+
   const navBtn = (path) =>
-    `btn btn-sm me-2 rounded-pill nav-btn ${
-      pathname === path
-        ? "btn-glossy shadow-lg border-2 active-nav"
-        : "btn-outline-light text-light border-2"
-    }`;
+    `btn-glossy nav-btn ${pathname === path ? "active-nav" : ""}`;
 
   return (
     <nav
@@ -36,24 +39,21 @@ const Navbar = ({ theme, setTheme }) => {
         <Link className={navBtn("/flashcards")} to="/flashcards">
           Rx Flashcards
         </Link>
-        {/* <Link to="/pthealthcarequiz" className="btn btn-primary">
-          PT Healthcare quiz
-        </Link>
-        <Link to="/pthealthcare" className="btn btn-primary">
-          PT Healthcare
-        </Link> */}
-        <Link to="/pt-drug-reference" className="btn btn-outline-dark">
+
+        <Link className={navBtn("/pt-drug-reference")} to="/pt-drug-reference">
           PT Drug Reference
         </Link>
-        <Link className="btn btn-outline-dark" to="/pt-reference">
+        <Link className={navBtn("/pt-reference")} to="/pt-reference">
           PT Drug Reference Table
         </Link>
-        <Link className="btn btn-outline-dark" to="/pt-flashcards">
+
+        <Link className={navBtn("/pt-flashcards")} to="/pt-flashcards">
           PT Flashcards
         </Link>
-        <Link to="/pthealthcare/quiz" className="btn btn-success ms-2">
+        <Link className={navBtn("/pthealthcare/quiz")} to="/pthealthcare/quiz">
           Quiz PT Drugs
         </Link>
+
         {isAuth && user?.is_staff && (
           <>
             <Link className={navBtn("/admin/drugs")} to="/admin/drugs">
@@ -65,7 +65,7 @@ const Navbar = ({ theme, setTheme }) => {
           </>
         )}
       </div>
-      <div className="ms-auto">
+      <div className="ms-auto nav-right">
         {isAuth ? (
           <>
             {/* Welcome message */}
@@ -75,7 +75,7 @@ const Navbar = ({ theme, setTheme }) => {
             <Link className={navBtn("/profile")} to="/profile">
               Profile
             </Link>
-            <button className="btn btn-outline-light btn-sm" onClick={logout}>
+            <button className="btn-glossy nav-btn" onClick={logout}>
               Logout <i className="bi bi-door-open ms-2"></i>
             </button>
           </>
@@ -89,12 +89,12 @@ const Navbar = ({ theme, setTheme }) => {
             </Link>
           </>
         )}
+        <button className="btn-glossy nav-btn m-2" onClick={toggleTheme}>
+          <i
+            className={theme === "light-theme" ? "bi bi-moon" : "bi bi-sun"}
+          ></i>
+        </button>
       </div>
-
-      <button className="btn btn-outline-secondary m-2" onClick={toggleTheme}>
-        {/* {theme === "light-theme" ? "🌙" : "☀️"} */}
-        <i className={theme === "light-theme" ? "bi bi-moon" : "bi bi-sun"}></i>
-      </button>
     </nav>
   );
 };
