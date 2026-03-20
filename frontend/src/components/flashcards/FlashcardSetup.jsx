@@ -175,7 +175,25 @@ const FlashcardSetup = ({
           )}
         </div>
       )}
-
+      {/* Preset flashcard buttons */}
+      <div className="card p-3 mx-auto mb-3" style={{ maxWidth: "300px" }}>
+        <h6>Choose a preset amount</h6>
+        <div className="d-flex justify-content-between mt-2">
+          {[50, 100, 200].map((num) => (
+            <button
+              key={num}
+              className="btn btn-outline-primary"
+              onClick={() => {
+                setLimit(num);
+                fetchCards(num);
+              }}
+              disabled={studyMode === "class" && selectedClasses.length === 0}
+            >
+              {num}
+            </button>
+          ))}
+        </div>
+      </div>
       {/* Custom input */}
       <div className="card p-3 mx-auto" style={{ maxWidth: "300px" }}>
         <h6>Custom Amount</h6>
