@@ -208,6 +208,10 @@ const Flashcards = () => {
       limit={limit}
       sessionComplete={sessionComplete}
       resetSession={resetSession}
+      spinShuffle={() => {
+        const shuffled = [...activeCards].sort(() => 0.5 - Math.random());
+        setActiveCards(shuffled);
+      }}
     />
   );
 };

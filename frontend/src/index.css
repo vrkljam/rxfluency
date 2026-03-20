@@ -285,6 +285,32 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+/* Confidence button colors */
+.btn-again {
+  background: linear-gradient(180deg, #ff6b6b, #c0392b);
+  color: white;
+}
+
+.btn-hard {
+  background: linear-gradient(180deg, #feca57, #e1a12c);
+  color: #000;
+}
+
+.btn-okay {
+  background: linear-gradient(180deg, #a4b0be, #57606f);
+  color: white;
+}
+
+.btn-good {
+  background: linear-gradient(180deg, #1dd1a1, #10ac84);
+  color: white;
+}
+
+.btn-easy {
+  background: linear-gradient(180deg, #2ecc71, #27ae60);
+  color: white;
+}
+
 /* ----------------- Cards & Containers ----------------- */
 .light-theme .card {
   background-color: rgba(255, 255, 255, 0.85);
@@ -321,6 +347,25 @@ button:focus-visible {
   background-color: #118c4f;
 }
 
+/* 🎲 Scatter animation */
+.flashcard.scatter {
+  animation: scatterOut 0.25s ease forwards;
+}
+
+@keyframes scatterOut {
+  0% {
+    transform: scale(1) translate(0, 0) rotate(0deg);
+  }
+  30% {
+    transform: scale(0.9) translate(-60px, -40px) rotate(-10deg);
+  }
+  60% {
+    transform: scale(0.95) translate(50px, 30px) rotate(8deg);
+  }
+  100% {
+    transform: scale(1) translate(0, 0) rotate(0deg);
+  }
+}
 /* ----------------- Landing Page ----------------- */
 .landing {
   height: 100vh;
