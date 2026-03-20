@@ -49,31 +49,29 @@ const FlashcardSession = ({
   // };
 
   const [isScattering, setIsScattering] = useState(false);
+  const [showRoundNotice, setShowRoundNotice] = useState(false);
 
   const handleRate = (rating) => {
-    if (!card) return; // safety check
+    if (!card) return;
 
-    // Remove current card from activeCards if rating is high enough
     if (rating >= 4) {
+      // move to confident
       const remainingActive = activeCards.filter((c, i) => i !== currentIndex);
       const newConfident = [...confidentCards, card];
 
       setActiveCards(remainingActive);
       setConfidentCards(newConfident);
 
-      // If no more active cards, mark session complete
       if (remainingActive.length === 0) {
         setSessionComplete(true);
       } else {
-        // Reset index safely
         setCurrentIndex((prev) => (prev >= remainingActive.length ? 0 : prev));
       }
+    } else {
+      // advance for lower ratings too
+      nextCard();
     }
 
-    // Optional: you could track ratings per card if you want
-    // setRatings((prev) => ({ ...prev, [card.id]: rating }));
-
-    // Flip back to front for next card
     setFlipped(false);
   };
 
@@ -93,9 +91,24 @@ const FlashcardSession = ({
     setFlipped(false);
   };
 
+  // const nextCard = () => {
+  //   setCurrentIndex((i) => (i < currentList.length - 1 ? i + 1 : 0));
+  //   setFlipped(false);
+  // };
+
   const nextCard = () => {
-    setCurrentIndex((i) => (i < currentList.length - 1 ? i + 1 : 0));
-    setFlipped(false);
+    setCurrentIndex((i) => {
+      const nextIndex = i < currentList.length - 1 ? i + 1 : 0;
+
+      // Show notice when we wrap around to first card
+      if (nextIndex === 0 && currentList.length > 0) {
+        setShowRoundNotice(true);
+        setTimeout(() => setShowRoundNotice(false), 1500); // hide after 1.5s
+      }
+
+      setFlipped(false);
+      return nextIndex;
+    });
   };
 
   const handleShuffle = () => {
@@ -142,7 +155,11 @@ const FlashcardSession = ({
         current={confidentCards.length}
         total={activeCards.length + confidentCards.length}
       />
-
+      {showRoundNotice && (
+        <div className="alert alert-info mt-3">
+          You’ve gone through the set! You can now shuffle if desired.
+        </div>
+      )}
       {/* Flashcard */}
       <div
         className="flashcard-container mx-auto"
