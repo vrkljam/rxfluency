@@ -28,16 +28,23 @@ const Flashcards = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [filteredClasses, setFilteredClasses] = useState([]);
 
+  const [studyMode, setStudyMode] = useState("top200");
+
   // --- Fetch cards ---
+
   const fetchCards = async (n) => {
     setLoading(true);
     let url = "/drugs/";
     let params = [];
 
-    if (top200Only) params.push("is_top_200=true");
-    if (selectedClasses.length) {
+    if (studyMode === "top200") {
+      params.push("is_top_200=true");
+    }
+
+    if (studyMode === "class" && selectedClasses.length) {
       selectedClasses.forEach((c) => params.push(`classes=${c}`));
     }
+
     if (params.length) url += "?" + params.join("&");
 
     const res = await api.get(url);
@@ -55,6 +62,32 @@ const Flashcards = () => {
     setFlipped(false);
     setLoading(false);
   };
+  // const fetchCards = async (n) => {
+  //   setLoading(true);
+  //   let url = "/drugs/";
+  //   let params = [];
+
+  //   if (top200Only) params.push("is_top_200=true");
+  //   if (selectedClasses.length) {
+  //     selectedClasses.forEach((c) => params.push(`classes=${c}`));
+  //   }
+  //   if (params.length) url += "?" + params.join("&");
+
+  //   const res = await api.get(url);
+
+  //   const shuffled = res.data.sort(() => 0.5 - Math.random());
+  //   const safeCount = Math.min(n, shuffled.length);
+  //   const selected = shuffled.slice(0, safeCount);
+
+  //   setActiveCards(selected);
+  //   setConfidentCards([]);
+  //   setRatings({});
+  //   setSessionComplete(false);
+  //   setCards(shuffled.slice(0, safeCount));
+  //   setCurrentIndex(0);
+  //   setFlipped(false);
+  //   setLoading(false);
+  // };
 
   const resetSession = () => {
     setLimit(null);
@@ -125,6 +158,8 @@ const Flashcards = () => {
         setLimit={setLimit}
         customCount={customCount}
         setCustomCount={setCustomCount}
+        studyMode={studyMode}
+        setStudyMode={setStudyMode}
       />
     );
   }
@@ -170,6 +205,13 @@ const Flashcards = () => {
       ratings={ratings}
       setRatings={setRatings}
       setSessionComplete={setSessionComplete}
+      limit={limit}
+      sessionComplete={sessionComplete}
+      resetSession={resetSession}
+      spinShuffle={() => {
+        const shuffled = [...activeCards].sort(() => 0.5 - Math.random());
+        setActiveCards(shuffled);
+      }}
     />
   );
 };

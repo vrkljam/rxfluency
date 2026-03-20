@@ -76,12 +76,33 @@ body.dark-theme {
   transition: color 0.3s;
 }
 
-.navbar a:hover {
+.navbar a:not(.btn-glossy):hover {
   color: #1cc88a;
   background-color: rgba(255, 255, 255, 0.1);
 }
 
 /* ----------------- Navbar Buttons ----------------- */
+
+.navbar .ms-4 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  align-items: center;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.nav-right span {
+  position: relative;
+  z-index: 2;
+  white-space: nowrap;
+}
+
 .nav-btn {
   margin: 0 0.3rem;
   padding: 0.45rem 1rem;
@@ -89,9 +110,109 @@ body.dark-theme {
   font-size: 0.875rem;
   font-weight: 500;
   transition: all 0.3s ease;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .btn-glossy {
+  position: relative;
+  z-index: 1;
+  isolation: isolate;
+  overflow: hidden;
+  margin: 0 0.3rem;
+  padding: 0.45rem 1rem;
+
+  color: #fff;
+  font-weight: 600;
+  border: 1px solid #2b7d73;
+  border-radius: 50px;
+  cursor: pointer;
+
+  /* Game-style gradient */
+  background: linear-gradient(180deg, #4fc1b8, #2b7d73);
+
+  /* Stronger 3D depth */
+  box-shadow:
+    0 4px 0 #1f5c55,
+    0 8px 12px rgba(0, 0, 0, 0.25);
+
+  transition: all 0.15s ease;
+}
+
+.navbar .btn-glossy {
+  color: #ffffff;
+}
+
+.navbar .btn-glossy:hover {
+  color: #ffffff;
+  filter: brightness(1.12);
+}
+
+/* ✨ Moving shine (the key upgrade) */
+.btn-glossy::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -60%;
+  width: 40%;
+  height: 100%;
+
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.6) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+
+  transform: skewX(-25deg);
+}
+
+/* Animate shine on hover */
+.btn-glossy::before {
+  animation: shine 4.5s linear infinite;
+}
+
+@keyframes shine {
+  0% {
+    left: -75%;
+  }
+  100% {
+    left: 125%;
+  }
+}
+
+/* 💡 Optional constant top gloss (adds that "candy" look) */
+.btn-glossy::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 50%;
+  width: 100%;
+  border-radius: 50px;
+  background: rgba(255, 255, 255, 0.15);
+  pointer-events: none;
+}
+
+/* Hover lift */
+/* .btn-glossy:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.1);
+  box-shadow:
+    0 6px 0 #1f5c55,
+    0 12px 16px rgba(0, 0, 0, 0.3);
+} */
+
+/* Pressed effect */
+.btn-glossy:active {
+  transform: translateY(3px);
+  box-shadow:
+    0 2px 0 #1f5c55,
+    0 4px 6px rgba(0, 0, 0, 0.25);
+}
+
+/* ---------old glossy----------- */
+/* .btn-glossy {
   position: relative;
   background: linear-gradient(145deg, #4fc1b8, #3aa797);
   color: #fff;
@@ -129,7 +250,8 @@ body.dark-theme {
   background: linear-gradient(145deg, #3aa797, #2b7d73);
   transform: translateY(1px);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-}
+} */
+/* --------------------------------------------------- */
 
 /* Active Navbar Button */
 .active-nav {
@@ -161,6 +283,32 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+/* Confidence button colors */
+.btn-again {
+  background: linear-gradient(180deg, #ff6b6b, #c0392b);
+  color: white;
+}
+
+.btn-hard {
+  background: linear-gradient(180deg, #feca57, #e1a12c);
+  color: #000;
+}
+
+.btn-okay {
+  background: linear-gradient(180deg, #a4b0be, #57606f);
+  color: white;
+}
+
+.btn-good {
+  background: linear-gradient(180deg, #1dd1a1, #10ac84);
+  color: white;
+}
+
+.btn-easy {
+  background: linear-gradient(180deg, #2ecc71, #27ae60);
+  color: white;
 }
 
 /* ----------------- Cards & Containers ----------------- */
@@ -199,6 +347,25 @@ button:focus-visible {
   background-color: #118c4f;
 }
 
+/* 🎲 Scatter animation */
+.flashcard.scatter {
+  animation: scatterOut 0.25s ease forwards;
+}
+
+@keyframes scatterOut {
+  0% {
+    transform: scale(1) translate(0, 0) rotate(0deg);
+  }
+  30% {
+    transform: scale(0.9) translate(-60px, -40px) rotate(-10deg);
+  }
+  60% {
+    transform: scale(0.95) translate(50px, 30px) rotate(8deg);
+  }
+  100% {
+    transform: scale(1) translate(0, 0) rotate(0deg);
+  }
+}
 /* ----------------- Landing Page ----------------- */
 .landing {
   height: 100vh;
@@ -548,4 +715,10 @@ main {
 }
 .spinning .flashcard-face {
   filter: blur(2px);
+}
+
+@media (max-width: 768px) {
+  .navbar .ms-4 {
+    max-width: 100%;
+  }
 }

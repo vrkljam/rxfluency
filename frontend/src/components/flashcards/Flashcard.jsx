@@ -1,12 +1,16 @@
 import React from "react";
 
-const Flashcard = ({ card, flipped, setFlipped, isSpinning }) => {
+const Flashcard = ({ card, flipped, setFlipped, isSpinning, isScattering }) => {
   if (!card) return null;
 
   return (
     <div className="flashcard-clip">
       <div
-        className={`shadow-sm flashcard ${flipped ? "flipped" : ""} ${isSpinning ? "spinning" : ""}`}
+        // className={`shadow-sm flashcard ${flipped ? "flipped" : ""} ${isSpinning ? "spinning" : ""}`}
+        className={`flashcard 
+    ${flipped ? "flipped" : ""} 
+    ${isScattering ? "scatter" : ""}
+  `}
         onClick={() => !isSpinning && setFlipped(!flipped)}
       >
         {/* Front */}

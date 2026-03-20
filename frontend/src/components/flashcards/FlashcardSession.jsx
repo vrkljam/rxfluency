@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Flashcard from "./Flashcard";
 import ConfidenceButtons from "./ConfidenceButtons";
 import ProgressBar from "./ProgressBar";
@@ -17,6 +17,7 @@ const FlashcardSession = ({
   flipped,
   setFlipped,
   isSpinning,
+  setIsSpinning,
   spinShuffle,
   limit,
   sessionComplete,
@@ -46,6 +47,8 @@ const FlashcardSession = ({
   // Automatically go to next card
   //   nextCard();
   // };
+
+  const [isScattering, setIsScattering] = useState(false);
 
   const handleRate = (rating) => {
     if (!card) return; // safety check
@@ -95,6 +98,22 @@ const FlashcardSession = ({
     setFlipped(false);
   };
 
+  const handleShuffle = () => {
+    if (!spinShuffle) return;
+
+    setIsScattering(true);
+
+    setTimeout(() => {
+      setFlipped(false);
+      spinShuffle();
+      setCurrentIndex(0);
+    }, 200); // scatter happens first
+
+    setTimeout(() => {
+      setIsScattering(false);
+    }, 500); // regroup
+  };
+
   useEffect(() => {
     if (sessionComplete) {
       launchBouncyPharmaConfetti();
@@ -115,11 +134,14 @@ const FlashcardSession = ({
         confidentCards={confidentCards}
         view={view}
         setView={setView}
-        spinShuffle={spinShuffle}
+        spinShuffle={handleShuffle}
       />
 
       {/* Progress bar */}
-      <ProgressBar confidentCount={confidentCards.length} total={limit} />
+      <ProgressBar
+        current={confidentCards.length}
+        total={activeCards.length + confidentCards.length}
+      />
 
       {/* Flashcard */}
       <div
@@ -131,6 +153,7 @@ const FlashcardSession = ({
           flipped={flipped}
           setFlipped={setFlipped}
           isSpinning={isSpinning}
+          isScattering={isScattering}
         />
       </div>
 
@@ -140,6 +163,10 @@ const FlashcardSession = ({
       </div>
 
       {/* Confidence buttons for active view */}
+      <div className="mt-3 text-muted">
+        Cards rated <strong>“Got it”</strong> or <strong>“Easy”</strong> move to
+        Confident
+      </div>
       {view === "active" && (
         <ConfidenceButtons onRate={handleRate} mode="labeled" />
       )}

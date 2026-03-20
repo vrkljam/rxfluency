@@ -1,25 +1,27 @@
 import React from "react";
 
 const ConfidenceButtons = ({ onRate, mode = "numeric" }) => {
-  // mode: "numeric" (default) or "labeled"
   const labeledRatings = [
-    { label: "Again", value: 1 },
-    { label: "Hard", value: 2 },
-    { label: "Maybe", value: 3 },
-    { label: "Good", value: 4 },
-    { label: "Easy", value: 5 },
+    { label: "Again", sub: "Keep in rotation", value: 1, class: "btn-again" },
+    { label: "Hard", sub: "Keep practicing", value: 2, class: "btn-hard" },
+    { label: "Okay", sub: "Still learning", value: 3, class: "btn-okay" },
+    { label: "Got it", sub: "Move to confident", value: 4, class: "btn-good" },
+    { label: "Easy", sub: "Mastered", value: 5, class: "btn-easy" },
   ];
 
   if (mode === "labeled") {
     return (
-      <div className="rating-buttons mt-4">
+      <div className="rating-buttons mt-4 d-flex justify-content-center flex-wrap gap-2">
         {labeledRatings.map((r) => (
           <button
             key={r.label}
-            className="btn btn-outline-primary me-2"
+            // className={`btn btn-outline-${r.color} text-center px-3 py-2`}
+            className={`btn ${r.class} text-center px-3 py-2`}
             onClick={() => onRate(r.value)}
+            style={{ minWidth: "90px" }}
           >
-            {r.label}
+            <div style={{ fontWeight: "600" }}>{r.label}</div>
+            <div style={{ fontSize: "0.75rem", opacity: 0.8 }}>{r.sub}</div>
           </button>
         ))}
       </div>
