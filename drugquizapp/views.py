@@ -5,7 +5,7 @@ from rest_framework.permissions import IsAdminUser, AllowAny
 from rest_framework import viewsets, filters
 from django_filters.rest_framework import DjangoFilterBackend
 from .models import Drug, Brand, DrugClass
-from .serializers import DrugSerializer,DrugClassSerializer
+from .serializers import DrugSerializer,DrugClassSerializer, BrandSerializer
 import random
 
 
@@ -90,7 +90,21 @@ class DrugViewSet(viewsets.ModelViewSet):
         return [IsAdminUser()]
     
     
+class BrandViewSet(viewsets.ModelViewSet):
+    queryset = Brand.objects.all()
+    serializer_class = BrandSerializer
+    permission_classes = [IsAdminUser]
 
-class DrugClassViewSet(viewsets.ReadOnlyModelViewSet):
+    def get_permissions(self):
+        if self.request.method in ["GET"]:
+            return [AllowAny()]
+        return [IsAdminUser()]
+
+class DrugClassViewSet(viewsets.ModelViewSet):
     queryset = DrugClass.objects.all()
     serializer_class = DrugClassSerializer
+
+    def get_permissions(self):
+        if self.request.method in ["GET"]:
+            return [AllowAny()]
+        return [IsAdminUser()]
