@@ -1,339 +1,375 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import api from "../api/api";
 
-const DrugsAdmin = () => {
+const API_BASE = "http://localhost:8000/api"; // adjust as needed
+
+export default function DrugAdmin() {
   const [drugs, setDrugs] = useState([]);
-  const [newDrug, setNewDrug] = useState({
-    brands: [],
+  const [classes, setClasses] = useState([]);
+  const [brands, setBrands] = useState([]);
+  const [classSearch, setClassSearch] = useState("");
+  const [brandSearch, setBrandSearch] = useState("");
+  const [newBrandInput, setNewBrandInput] = useState("");
+  const [sortField, setSortField] = useState("generic"); // "generic" or "brand"
+  const [sortOrder, setSortOrder] = useState("asc"); // "asc" or "desc"
+  const [form, setForm] = useState({
+    id: null,
     generic_name: "",
-    is_verified: false,
     is_top_200: false,
+    is_verified: false,
     is_combination: false,
+    description: "",
+    class_ids: [],
+    brand_ids: [],
   });
-  const [editingId, setEditingId] = useState(null);
-  const [editingDrug, setEditingDrug] = useState({});
-  const [deleteId, setDeleteId] = useState(null); // ID of drug to delete
-
-  // Fetch all drugs
-  const fetchDrugs = async () => {
-    try {
-      const token = localStorage.getItem("access");
-      if (!token) throw new Error("token not found, please log in");
-
-      const res = await api.get("/drugs/", {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
-      console.log("HELLLLLPPP: ", res.data);
-      setDrugs(res.data);
-    } catch (err) {
-      console.error("Error fetching drugs:", err);
-    }
-  };
 
   useEffect(() => {
-    fetchDrugs();
+    fetchData();
   }, []);
 
-  // Add new drug
-  const handleAdd = async () => {
-    if (!newDrug.brands.length || !newDrug.generic_name) return;
-    try {
-      const payload = {
-        ...newDrug,
-        brands: newDrug.brands.map((b) => b.name), // array of brand names
-      };
-      await api.post("/drugs/", payload);
-      setNewDrug({
-        brands: [],
-        generic_name: "",
-        is_verified: false,
-        is_top_200: false,
-        is_combination: false,
-      });
-      fetchDrugs();
-    } catch (err) {
-      console.error("Error adding drug:", err);
+  const fetchData = async () => {
+    const [drugRes, classRes, brandRes] = await Promise.all([
+      api.get(`${API_BASE}/drugs/`),
+      api.get(`${API_BASE}/drugclasses/`),
+      api.get(`${API_BASE}/brands/`),
+    ]);
+    console.log("Fetching drugs...");
+    setDrugs(drugRes.data.results || drugRes.data);
+    setClasses(classRes.data.results || classRes.data);
+    setBrands(brandRes.data.results || brandRes.data);
+  };
+
+  const handleChange = (e) => {
+    const { name, value, type, checked, options } = e.target;
+    if (type === "checkbox") {
+      setForm({ ...form, [name]: checked });
+    } else if (type === "select-multiple") {
+      const selected = Array.from(options)
+        .filter((o) => o.selected)
+        .map((o) => parseInt(o.value));
+      setForm({ ...form, [name]: selected });
+    } else {
+      setForm({ ...form, [name]: value });
     }
   };
 
-  // Save edited drug
-  const saveEdit = async () => {
-    try {
-      const payload = {
-        ...editingDrug,
-        brands: editingDrug.brands.map((b) => b.name),
-      };
-      await api.put(`/drugs/${editingId}/`, payload);
-      setEditingId(null);
-      fetchDrugs();
-    } catch (err) {
-      console.error("Error updating drug:", err);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    let allBrandIds = [...form.brand_ids];
+
+    // 🔥 Create new brands if entered
+    if (newBrandInput.trim()) {
+      const newBrands = newBrandInput
+        .split(",")
+        .map((b) => b.trim())
+        .filter((b) => b.length > 0);
+
+      for (const brandName of newBrands) {
+        try {
+          const res = await api.post("brands/", { name: brandName });
+          allBrandIds.push(res.data.id);
+        } catch (err) {
+          console.log("Brand may already exist:", brandName);
+
+          // fallback: find existing brand
+          const existing = brands.find(
+            (b) => b.name.toLowerCase() === brandName.toLowerCase(),
+          );
+          if (existing) {
+            allBrandIds.push(existing.id);
+          }
+        }
+      }
     }
+
+    const payload = {
+      ...form,
+      brand_ids: allBrandIds,
+    };
+
+    if (form.id) {
+      await api.put(`drugs/${form.id}/`, payload);
+    } else {
+      await api.post("drugs/", payload);
+    }
+
+    resetForm();
+    fetchData();
   };
 
-  // Delete confirmed
-  const confirmDelete = async () => {
-    if (!deleteId) return;
-    try {
-      await api.delete(`/drugs/${deleteId}/`);
-      setDeleteId(null);
-      fetchDrugs();
-    } catch (err) {
-      console.error("Error deleting drug:", err);
-    }
+  const resetForm = () => {
+    setForm({
+      id: null,
+      generic_name: "",
+      is_top_200: false,
+      is_verified: false,
+      is_combination: false,
+      description: "",
+      class_ids: [],
+      brand_ids: [],
+    });
+    setNewBrandInput("");
   };
 
-  // Start editing inline
-  const startEdit = (drug) => {
-    setEditingId(drug.id);
-    setEditingDrug({ ...drug });
+  const handleEdit = (drug) => {
+    setForm({
+      id: drug.id,
+      generic_name: drug.generic_name,
+      is_top_200: drug.is_top_200,
+      is_verified: drug.is_verified,
+      is_combination: drug.is_combination,
+      description: drug.description,
+      class_ids: drug.classes.map((c) => c.id),
+      brand_ids: drug.brands.map((b) => b.id),
+    });
   };
+
+  const handleDelete = async (id) => {
+    await api.delete(`${API_BASE}/drugs/${id}/`);
+    fetchData();
+  };
+
+  const sortedDrugs = [...drugs].sort((a, b) => {
+    let aValue, bValue;
+
+    if (sortField === "generic") {
+      aValue = a.generic_name.toLowerCase();
+      bValue = b.generic_name.toLowerCase();
+    } else if (sortField === "brand") {
+      aValue = a.brands[0]?.name.toLowerCase() || ""; // first brand
+      bValue = b.brands[0]?.name.toLowerCase() || "";
+    }
+
+    if (aValue < bValue) return sortOrder === "asc" ? -1 : 1;
+    if (aValue > bValue) return sortOrder === "asc" ? 1 : -1;
+    return 0;
+  });
 
   return (
-    <div className="container-fluid mt-3">
-      <h3>Manage Drugs</h3>
+    <div className="container py-4" style={{ maxWidth: "900px" }}>
+      <h1>Drug Admin</h1>
 
-      {/* Add New Drug Form */}
-      <div className="mb-3 d-flex gap-2 align-items-center">
-        <input
-          className="form-control"
-          type="text"
-          placeholder="Brand Name(s) (separate with /)"
-          value={newDrug.brands.map((b) => b.brand_name).join(" / ")}
-          onChange={(e) => {
-            const names = e.target.value
-              .split("/")
-              .map((n) => n.trim())
-              .filter(Boolean);
-            setNewDrug({
-              ...newDrug,
-              brands: names.map((name, i) => ({ id: i, brand_name: name })),
-            });
+      {/* Create New Drug Button */}
+      {form.id && (
+        <button onClick={resetForm} className="btn btn-warning mb-3">
+          + Create New Drug
+        </button>
+      )}
+
+      <div className="card p-3 mb-4">
+        <h2>{form.id ? `Editing: ${form.generic_name}` : "Create New Drug"}</h2>
+
+        <form
+          onSubmit={handleSubmit}
+          style={{
+            display: "grid",
+            gridTemplateColumns: "1fr 1fr",
+            gap: "16px",
+            marginBottom: "20px",
           }}
-        />
-        <input
-          className="form-control"
-          type="text"
-          placeholder="Generic Name"
-          value={newDrug.generic_name}
-          onChange={(e) =>
-            setNewDrug({ ...newDrug, generic_name: e.target.value })
-          }
-        />
-        <label className="d-flex align-items-center gap-1">
-          Verified
+        >
           <input
-            type="checkbox"
-            checked={newDrug.is_verified}
-            onChange={(e) =>
-              setNewDrug({ ...newDrug, is_verified: e.target.checked })
-            }
+            type="text"
+            name="generic_name"
+            placeholder="Generic Name"
+            value={form.generic_name}
+            onChange={handleChange}
+            required
+            className="form-control"
+            style={{ gridColumn: "span 2" }}
           />
-        </label>
-        <label className="d-flex align-items-center gap-1">
-          Combination
-          <input
-            type="checkbox"
-            checked={newDrug.is_combination}
-            onChange={(e) =>
-              setNewDrug({ ...newDrug, is_combination: e.target.checked })
-            }
+
+          <textarea
+            name="description"
+            placeholder="Description"
+            value={form.description}
+            onChange={handleChange}
+            className="form-control"
+            style={{ gridColumn: "span 2" }}
           />
-        </label>
-        <button className="btn btn-primary" onClick={handleAdd}>
-          Add Drug
+
+          {/* CHECKBOXES */}
+          <div className="d-flex gap-3">
+            <div className="form-check">
+              <input
+                type="checkbox"
+                name="is_top_200"
+                checked={form.is_top_200}
+                onChange={handleChange}
+                className="form-check-input"
+              />
+              <label className="form-check-label">Top 200</label>
+            </div>
+
+            <div className="form-check">
+              <input
+                type="checkbox"
+                name="is_verified"
+                checked={form.is_verified}
+                onChange={handleChange}
+                className="form-check-input"
+              />
+              <label className="form-check-label">Verified</label>
+            </div>
+
+            <div className="form-check">
+              <input
+                type="checkbox"
+                name="is_combination"
+                checked={form.is_combination}
+                onChange={handleChange}
+                className="form-check-input"
+              />
+              <label className="form-check-label">Combination</label>
+            </div>
+          </div>
+
+          {/* CLASSES */}
+          <div>
+            <label>Classes</label>
+            <input
+              placeholder="Search classes..."
+              value={classSearch}
+              onChange={(e) => setClassSearch(e.target.value)}
+              className="form-control mb-2"
+            />
+            <select
+              multiple
+              name="class_ids"
+              value={form.class_ids}
+              onChange={handleChange}
+              className="form-select"
+              style={{ height: "120px" }}
+            >
+              {classes
+                .filter((c) =>
+                  c.name.toLowerCase().includes(classSearch.toLowerCase()),
+                )
+                .map((c) => (
+                  <option key={c.id} value={c.id}>
+                    {c.name} ({c.class_type})
+                  </option>
+                ))}
+            </select>
+          </div>
+
+          {/* BRANDS */}
+          <div>
+            <label>Brands</label>
+            <input
+              type="text"
+              placeholder="Add new brand (comma separated)"
+              value={newBrandInput}
+              onChange={(e) => setNewBrandInput(e.target.value)}
+              className="form-control mb-2"
+            />
+            <select
+              multiple
+              name="brand_ids"
+              value={form.brand_ids}
+              onChange={handleChange}
+              className="form-select"
+              style={{ height: "120px" }}
+            >
+              {brands
+                .filter((b) =>
+                  b.name.toLowerCase().includes(brandSearch.toLowerCase()),
+                )
+                .map((b) => (
+                  <option key={b.id} value={b.id}>
+                    {b.name}
+                  </option>
+                ))}
+            </select>
+          </div>
+
+          {/* SUBMIT + CANCEL */}
+          <div className="d-flex gap-2">
+            <button
+              type="submit"
+              className={`btn ${form.id ? "btn-primary" : "btn-success"}`}
+            >
+              {form.id ? "Update Drug" : "Create Drug"}
+            </button>
+
+            {form.id && (
+              <button
+                type="button"
+                onClick={resetForm}
+                className="btn btn-secondary"
+              >
+                Cancel
+              </button>
+            )}
+          </div>
+        </form>
+      </div>
+      {/* Sorting Controls */}
+      <div className="mb-2 d-flex gap-2 align-items-center">
+        <span>Sort by:</span>
+        <button
+          className="btn btn-outline-secondary btn-sm"
+          onClick={() => {
+            setSortField("generic");
+            setSortOrder(sortOrder === "asc" ? "desc" : "asc");
+          }}
+        >
+          Generic
+          {sortField === "generic" ? (sortOrder === "asc" ? "↑" : "↓") : ""}
+        </button>
+        <button
+          className="btn btn-outline-secondary btn-sm"
+          onClick={() => {
+            setSortField("brand");
+            setSortOrder(
+              sortField === "brand" && sortOrder === "asc" ? "desc" : "asc",
+            );
+          }}
+        >
+          Brand {sortField === "brand" ? (sortOrder === "asc" ? "↑" : "↓") : ""}
         </button>
       </div>
 
-      {/* Drugs Table */}
-      <table className="table table-bordered table-hover">
-        <thead className="table-dark">
-          <tr>
-            <th>Brand Name</th>
-            <th>Generic Name</th>
-            <th>Verified</th>
-            <th>Combo</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {drugs.map((drug) => (
-            <tr key={drug.id}>
-              <td>
-                {editingId === drug.id ? (
-                  <input
-                    className="form-control"
-                    value={(editingDrug.brands || [])
-                      .map((b) => b.name)
-                      .join(" / ")}
-                    onChange={(e) => {
-                      const names = e.target.value
-                        .split("/")
-                        .map((n) => n.trim())
-                        .filter(Boolean);
-                      setEditingDrug({
-                        ...editingDrug,
-                        brands: names.map((name, i) => ({
-                          id: i,
-                          name: name,
-                        })),
-                      });
-                    }}
-                  />
-                ) : (
-                  (drug.brands || []).map((b) => b.name).join(" / ")
+      {/* DRUG LIST */}
+      <div className="card p-3">
+        <h2>Drugs List</h2>
+        <ul className="list-unstyled">
+          {sortedDrugs.map((drug) => (
+            <li key={drug.id} className="card mb-3 p-2 shadow-sm">
+              <div className="d-flex align-items-center gap-2">
+                <div className="fw-bold">{drug.generic_name}</div>
+                {drug.is_top_200 && (
+                  <span className="badge bg-warning text-dark">Top 200</span>
                 )}
-              </td>
-              <td>
-                {editingId === drug.id ? (
-                  <input
-                    className="form-control"
-                    value={editingDrug.generic_name}
-                    onChange={(e) =>
-                      setEditingDrug({
-                        ...editingDrug,
-                        generic_name: e.target.value,
-                      })
-                    }
-                  />
-                ) : (
-                  drug.generic_name
-                )}
-              </td>
-              <td className="text-center">
-                <input
-                  type="checkbox"
-                  checked={
-                    editingId === drug.id
-                      ? editingDrug.is_verified
-                      : drug.is_verified
-                  }
-                  onChange={(e) => {
-                    if (editingId === drug.id) {
-                      setEditingDrug({
-                        ...editingDrug,
-                        is_verified: e.target.checked,
-                      });
-                    } else {
-                      api
-                        .patch(`/drugs/${drug.id}/`, {
-                          is_verified: !drug.is_verified,
-                        })
-                        .then(fetchDrugs)
-                        .catch(console.error);
-                    }
-                  }}
-                />
-              </td>
-              <td className="text-center">
-                <input
-                  type="checkbox"
-                  checked={
-                    editingId === drug.id
-                      ? editingDrug.is_combination
-                      : drug.is_combination
-                  }
-                  onChange={(e) => {
-                    if (editingId === drug.id) {
-                      setEditingDrug({
-                        ...editingDrug,
-                        is_combination: e.target.checked,
-                      });
-                    } else {
-                      api
-                        .patch(`/drugs/${drug.id}/`, {
-                          is_combination: !drug.is_combination,
-                        })
-                        .then(fetchDrugs)
-                        .catch(console.error);
-                    }
-                  }}
-                />
-              </td>
-              <td>
-                {editingId === drug.id ? (
-                  <>
-                    <button
-                      className="btn btn-sm btn-success me-2"
-                      onClick={saveEdit}
-                    >
-                      Save
-                    </button>
-                    <button
-                      className="btn btn-sm btn-secondary"
-                      onClick={() => setEditingId(null)}
-                    >
-                      Cancel
-                    </button>
-                  </>
-                ) : (
-                  <>
-                    <button
-                      className="btn btn-sm btn-warning me-2"
-                      onClick={() => startEdit(drug)}
-                    >
-                      Edit
-                    </button>
-                    <button
-                      className="btn btn-sm btn-danger"
-                      onClick={() => setDeleteId(drug.id)}
-                    >
-                      Delete
-                    </button>
-                  </>
-                )}
-              </td>
-            </tr>
-          ))}
-          {drugs.length === 0 && (
-            <tr>
-              <td colSpan={4} className="text-center">
-                No drugs found
-              </td>
-            </tr>
-          )}
-        </tbody>
-      </table>
+              </div>
 
-      {/* Delete Confirmation Modal */}
-      {deleteId && (
-        <div
-          className="modal fade show d-block"
-          tabIndex="-1"
-          style={{ backgroundColor: "rgba(0,0,0,0.5)" }}
-        >
-          <div className="modal-dialog">
-            <div className="modal-content">
-              <div className="modal-header">
-                <h5 className="modal-title">Confirm Delete</h5>
-                <button
-                  type="button"
-                  className="btn-close"
-                  onClick={() => setDeleteId(null)}
-                ></button>
+              <div>
+                <b>Classes:</b> {drug.classes.map((c) => c.name).join(", ")}
               </div>
-              <div className="modal-body">
-                Are you sure you want to delete this drug?
+
+              <div>
+                <b>Brands:</b> {drug.brands.map((b) => b.name).join(", ")}
               </div>
-              <div className="modal-footer">
+
+              <div className="mt-2 d-flex gap-2">
                 <button
-                  className="btn btn-secondary"
-                  onClick={() => setDeleteId(null)}
+                  onClick={() => handleEdit(drug)}
+                  className="btn btn-primary btn-sm"
                 >
-                  Cancel
+                  Edit
                 </button>
-                <button className="btn btn-danger" onClick={confirmDelete}>
+                <button
+                  onClick={() => handleDelete(drug.id)}
+                  className="btn btn-danger btn-sm"
+                >
                   Delete
                 </button>
               </div>
-            </div>
-          </div>
-        </div>
-      )}
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
-};
-
-export default DrugsAdmin;
+}
