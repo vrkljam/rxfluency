@@ -1,5 +1,5 @@
 from django.urls import path, include
-from .views import DrugViewSet, RandomQuestion, DrugClassViewSet, BrandViewSet
+from .views import DrugViewSet, RandomQuestion, DrugClassViewSet, BrandViewSet, DrugPairs
 from rest_framework import routers
 
 router = routers.DefaultRouter()
@@ -10,4 +10,5 @@ router.register(r"brands", BrandViewSet)
 urlpatterns = [
     path("", include(router.urls)),
     path("question/", RandomQuestion.as_view(), name='random-question'),
+    path("drug-pairs/", DrugPairs.as_view(), name='memory-game'),
 ]
