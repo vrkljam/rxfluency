@@ -39,6 +39,10 @@ const Navbar = ({ theme, setTheme }) => {
         <Link className={navBtn("/flashcards")} to="/flashcards">
           Rx Flashcards
         </Link>
+        {/* Add this link anywhere you want in the navbar links section */}
+        <Link className={navBtn("/memory")} to="/memory">
+          Memory Game
+        </Link>
 
         <Link className={navBtn("/pt-drug-reference")} to="/pt-drug-reference">
           PT Drug Reference

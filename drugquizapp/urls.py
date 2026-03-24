@@ -10,5 +10,5 @@ router.register(r"brands", BrandViewSet)
 urlpatterns = [
     path("", include(router.urls)),
     path("question/", RandomQuestion.as_view(), name='random-question'),
-    path("drug-pairs/", DrugPairs.as_view(), name='drug-pairs'),
+    path("drug-pairs/", DrugPairs.as_view(), name='memory-game'),
 ]

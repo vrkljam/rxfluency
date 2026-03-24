@@ -114,11 +114,23 @@ class DrugPairs(APIView):
 
     def get(self, request):
         limit = int(request.query_params.get('limit', 8))
+        top200 = request.query_params.get('top200')
+        class_id = request.query_params.get('class')
 
-        drugs = Drug.objects.prefetch_related("brands").filter(brands__isnull=False).distinct()
+        drugs = Drug.objects.prefetch_related("brands", "classes").filter(brands__isnull=False).distinct()
+
+        # 🔹 Top 200 filter
+        if top200 == 'true':
+            drugs = drugs.filter(is_top_200=True)
+
+        # 🔹 Class filter
+        if class_id:
+            drugs = drugs.filter(classes__id=class_id)
+
+        drugs = drugs.distinct()
 
         if not drugs.exists():
-            return Response({"error": "No valid drug/brand pairs"}, status=400)
+            return Response({"error": "No drugs match filters"}, status=400)
 
         selected_drugs = random.sample(list(drugs), min(limit, len(drugs)))
 
