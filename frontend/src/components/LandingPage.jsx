@@ -22,7 +22,7 @@ const LandingPage = () => {
               <h2>What is RxFluency?</h2>
 
               <p>
-                RxFluent helps you become fluent in medication names through
+                RxFluency helps you become fluent in medication names through
                 focused, high-yield practice.
               </p>
 
@@ -33,7 +33,7 @@ const LandingPage = () => {
               </p>
 
               <p>
-                Whether you’re a student or a clinician, RxFluent makes
+                Whether you’re a student or a clinician, RxFluency makes
                 mastering drug names fast, effective, and confidence-building.
               </p>
             </div>
