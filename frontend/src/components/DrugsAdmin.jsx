@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import api from "../api/api";
 
-const API_BASE = "http://localhost:8000/api"; // adjust as needed
-
 export default function DrugAdmin() {
   const [drugs, setDrugs] = useState([]);
   const [classes, setClasses] = useState([]);
@@ -29,9 +27,9 @@ export default function DrugAdmin() {
 
   const fetchData = async () => {
     const [drugRes, classRes, brandRes] = await Promise.all([
-      api.get(`${API_BASE}/drugs/`),
-      api.get(`${API_BASE}/drugclasses/`),
-      api.get(`${API_BASE}/brands/`),
+      api.get("/drugs/"),
+      api.get("/drugclasses/"),
+      api.get("/brands/"),
     ]);
     console.log("Fetching drugs...");
     setDrugs(drugRes.data.results || drugRes.data);
@@ -126,7 +124,7 @@ export default function DrugAdmin() {
   };
 
   const handleDelete = async (id) => {
-    await api.delete(`${API_BASE}/drugs/${id}/`);
+    await api.delete(`/drugs/${id}/`);
     fetchData();
   };
 
