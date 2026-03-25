@@ -29,6 +29,30 @@ body {
     color 0.3s;
 }
 
+.oleo-script-regular {
+  font-family: "Oleo Script", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.oleo-script-bold {
+  font-family: "Oleo Script", system-ui;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 2rem !important;
+  color: #6fd2cf !important;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+/* Dark navbar variant - slightly brighter for contrast */
+.navbar-dark .navbar-brand.oleo-script-bold {
+  color: #6fd2cf !important;
+  text-shadow:
+    0 0 6px #6fd2cf,
+    0 0 12px #6fd2cf,
+    0 0 18px #6fd2cf;
+}
+
 /* ----------------- Themes ----------------- */
 body.light-theme {
   background: linear-gradient(135deg, #4e73df, #1cc88a);
@@ -154,7 +178,7 @@ body.dark-theme {
   position: absolute;
   top: 0;
   left: -60%;
-  width: 40%;
+  width: 12%;
   height: 100%;
 
   background: linear-gradient(
@@ -169,7 +193,7 @@ body.dark-theme {
 
 /* Animate shine on hover */
 .btn-glossy::before {
-  animation: shine 4.5s linear infinite;
+  animation: shine 3s linear infinite;
 }
 
 @keyframes shine {

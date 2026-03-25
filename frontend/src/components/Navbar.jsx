@@ -9,15 +9,6 @@ const Navbar = ({ theme, setTheme }) => {
   const toggleTheme = () => {
     setTheme(theme === "light-theme" ? "dark-theme" : "light-theme");
   };
-  // const navBtn = (path) =>
-  //   `btn btn-sm me-2 ${pathname === path ? "btn-light" : "btn-outline-light"}`;
-
-  // const navBtn = (path) =>
-  //   `btn-glossy btn btn-sm me-2 rounded-pill nav-btn ${
-  //     pathname === path
-  //       ? "btn-glossy shadow-lg border-2 active-nav"
-  //       : "btn-outline-light text-light border-2"
-  //   }`;
 
   const navBtn = (path) =>
     `btn-glossy nav-btn ${pathname === path ? "active-nav" : ""}`;
@@ -28,7 +19,7 @@ const Navbar = ({ theme, setTheme }) => {
         theme === "light-theme" ? "navbar-light-custom" : "navbar-dark bg-dark"
       }`}
     >
-      <Link className="navbar-brand" to="/">
+      <Link className="navbar-brand oleo-script-bold" to="/">
         RxFluency
       </Link>
 

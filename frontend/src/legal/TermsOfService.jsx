@@ -20,12 +20,12 @@ const TermsOfService = () => {
         <div className="landing-blurb no-pulse">
           <div className="landing-blurb-inner">
             <p>
-              Welcome to <strong>RxFluent</strong>. By using this website and
+              Welcome to <strong>RxFluency</strong>. By using this website and
               our services, you agree to the following terms:
             </p>
             <ul>
               <li>
-                <strong>Use of the Service:</strong> RxFluent provides
+                <strong>Use of the Service:</strong> RxFluency provides
                 educational quizzes and flashcards to help users learn brand and
                 generic medications. The service is for{" "}
                 <strong>personal, educational purposes only</strong>.
@@ -41,11 +41,11 @@ const TermsOfService = () => {
               </li>
               <li>
                 <strong>Intellectual Property:</strong> All content is the
-                property of RxFluent or its licensors. Do not copy or
+                property of RxFluency or its licensors. Do not copy or
                 redistribute without permission.
               </li>
               <li>
-                <strong>Limitation of Liability:</strong> RxFluent is provided
+                <strong>Limitation of Liability:</strong> RxFluency is provided
                 “as is.” Use the service at your own risk.
               </li>
               <li>

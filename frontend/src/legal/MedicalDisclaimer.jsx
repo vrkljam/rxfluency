@@ -20,7 +20,7 @@ const MedicalDisclaimer = () => {
         <div className="landing-blurb no-pulse">
           <div className="landing-blurb-inner">
             <p>
-              <strong>Important:</strong> RxFluent is an{" "}
+              <strong>Important:</strong> RxFluency is an{" "}
               <strong>educational tool only</strong>.
             </p>
             <ul>
@@ -39,7 +39,7 @@ const MedicalDisclaimer = () => {
                 diagnosis, or treatment.
               </li>
               <li>
-                <strong>Risks:</strong> RxFluent is not responsible for any
+                <strong>Risks:</strong> RxFluency is not responsible for any
                 consequences from the use of this information.
               </li>
             </ul>
