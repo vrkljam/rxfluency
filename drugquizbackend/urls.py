@@ -20,12 +20,14 @@ from django.urls import path, include, re_path
 # from loginout.views import RegisterView,ProfileView,LogoutView
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 from django.views.generic import TemplateView
+from django.http import HttpResponse
 
 
 # def home(request):
 #     return HttpResponse("Hello 👋 Drug quiz backend is running.")
 
 urlpatterns = [
+    path('', lambda request: HttpResponse("OK")),
     
     path('admin/', admin.site.urls),
     path('api/', include('drugquizapp.urls')),
