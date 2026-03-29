@@ -340,6 +340,9 @@ export default function DrugAdmin() {
                 {drug.is_top_200 && (
                   <span className="badge bg-warning text-dark">Top 200</span>
                 )}
+                {drug.is_verified && (
+                  <span className="badge bg-success">Verified</span>
+                )}
               </div>
 
               <div>
