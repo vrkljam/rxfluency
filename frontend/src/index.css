@@ -134,8 +134,9 @@ body.dark-theme {
   font-size: 0.875rem;
   font-weight: 500;
   transition: all 0.3s ease;
-  white-space: nowrap;
-  flex-shrink: 0;
+  white-space: normal;
+  flex-shrink: 1;
+  min-width: 0;
 }
 
 .btn-glossy {
@@ -143,6 +144,7 @@ body.dark-theme {
   z-index: 1;
   isolation: isolate;
   overflow: hidden;
+  display: inline-flex;
   margin: 0 0.3rem;
   padding: 0.45rem 1rem;
 
@@ -177,8 +179,8 @@ body.dark-theme {
   content: "";
   position: absolute;
   top: 0;
-  left: -60%;
-  width: 12%;
+  left: -40%;
+  width: 30%;
   height: 100%;
 
   background: linear-gradient(
@@ -201,7 +203,7 @@ body.dark-theme {
     left: -75%;
   }
   100% {
-    left: 125%;
+    left: 110%;
   }
 }
 
@@ -441,6 +443,40 @@ button:focus-visible {
     transform: scale(1.03);
     filter: brightness(1.15);
   }
+}
+
+/* Dropdown styling to match your theme */
+.dropdown-menu {
+  border-radius: 12px;
+  padding: 0.5rem;
+  border: none;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(6px);
+}
+
+.dropdown-item {
+  border-radius: 8px;
+  color: #fff;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.dropdown-item:hover {
+  background: linear-gradient(145deg, #4fc1b8, #2b7d73);
+  color: #fff;
+}
+
+.light-theme .dropdown-menu {
+  background: rgba(255, 255, 255, 0.95);
+}
+
+.light-theme .dropdown-item {
+  color: #1a1a1a;
+}
+
+.light-theme .dropdown-item:hover {
+  background: #4fc1b8;
+  color: #fff;
 }
 
 /* ----------------- Misc & Utility ----------------- */
@@ -701,8 +737,48 @@ main {
   filter: blur(2px);
 }
 
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
   .navbar .ms-4 {
     max-width: 100%;
+  }
+} */
+
+@media (max-width: 768px) {
+  .nav-right {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+  }
+  .navbar-nav {
+    flex-direction: column !important; /* 🔑 force vertical */
+    gap: 0.25rem !important;
+    width: 100%;
+  }
+  .navbar-collapse {
+    width: 100%;
+  }
+
+  .navbar-nav .nav-item {
+    width: 100%;
+  }
+
+  .navbar-nav .nav-link,
+  .nav-btn {
+    display: block;
+    width: 100%;
+  }
+
+  .nav-btn {
+    width: 100%; /* full-width buttons in mobile */
+  }
+  .nav-right {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 1rem;
+  }
+
+  .nav-right .nav-btn {
+    width: 100%;
   }
 }
