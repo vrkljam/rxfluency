@@ -55,31 +55,40 @@ const Navbar = ({ theme, setTheme }) => {
               Memory Game
             </Link>
           </li>
-          <li className="nav-item">
-            <Link
-              className={navBtn("/pt-drug-reference")}
-              to="/pt-drug-reference"
+          <li className="nav-item dropdown">
+            <button
+              className={`btn-glossy nav-btn dropdown-toggle ${
+                pathname.startsWith("/pt") ? "active-nav" : ""
+              }`}
+              id="ptDropdown"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
             >
-              PT Drug Reference
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link className={navBtn("/pt-reference")} to="/pt-reference">
-              PT Drug Reference Table
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link className={navBtn("/pt-flashcards")} to="/pt-flashcards">
-              PT Flashcards
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link
-              className={navBtn("/pthealthcare/quiz")}
-              to="/pthealthcare/quiz"
-            >
-              Quiz PT Drugs
-            </Link>
+              PT Section
+            </button>
+
+            <ul className="dropdown-menu">
+              <li>
+                <Link className="dropdown-item" to="/pt-drug-reference">
+                  PT Drug Reference
+                </Link>
+              </li>
+              <li>
+                <Link className="dropdown-item" to="/pt-reference">
+                  PT Drug Reference Table
+                </Link>
+              </li>
+              <li>
+                <Link className="dropdown-item" to="/pt-flashcards">
+                  PT Flashcards
+                </Link>
+              </li>
+              <li>
+                <Link className="dropdown-item" to="/pthealthcare/quiz">
+                  Quiz PT Drugs
+                </Link>
+              </li>
+            </ul>
           </li>
 
           {isAuth && user?.is_staff && (

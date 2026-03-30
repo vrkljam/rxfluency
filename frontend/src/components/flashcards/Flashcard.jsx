@@ -3,6 +3,22 @@ import React from "react";
 const Flashcard = ({ card, flipped, setFlipped, isSpinning, isScattering }) => {
   if (!card) return null;
 
+  const gradients = [
+    "linear-gradient(135deg, #4fc1b8, #2b7d73)",
+    "linear-gradient(135deg, #6a11cb, #2575fc)",
+    "linear-gradient(135deg, #ff6a00, #ee0979)",
+    "linear-gradient(135deg, #11998e, #38ef7d)",
+    "linear-gradient(135deg, #fc466b, #3f5efb)",
+  ];
+
+  const getGradient = (str) => {
+    let hash = 0;
+    for (let i = 0; i < str.length; i++) {
+      hash = str.charCodeAt(i) + ((hash << 5) - hash);
+    }
+    return gradients[Math.abs(hash) % gradients.length];
+  };
+
   return (
     <div className="flashcard-clip">
       <div
@@ -31,16 +47,13 @@ const Flashcard = ({ card, flipped, setFlipped, isSpinning, isScattering }) => {
               ? card.generic_name.join(" / ")
               : card.generic_name}
           </div>
-
-          {/* Class list */}
-          <div className="text-muted mt-2 small">
-            {card.classes.map((c) => c.name).join(" • ")}
-          </div>
-
-          {/* Class badges */}
           <div className="mt-3">
             {card.classes.map((c) => (
-              <span key={c.id} className="badge bg-secondary me-2">
+              <span
+                key={c.id}
+                className="badge badge-custom me-2"
+                style={{ background: getGradient(c.name) }}
+              >
                 {c.name}
               </span>
             ))}
