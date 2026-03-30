@@ -25,7 +25,7 @@ import PTHealthcareFillInQuiz from "./components/pthealthcare/PTHealthcareFillIn
 import PTHealthcareDrugReference from "./components/pthealthcare/PTHealthcareDrugReference";
 import PTDrugFlashcards from "./components/pthealthcare/PTDrugFlashcards";
 import PTReference from "./components/pthealthcare/PTReferenceTable";
-import MemoryGrid from "./components/memoryGame/Memorygrid";
+import MemoryMatrix from "./components/memoryGame/MemoryMatrix";
 
 function App() {
   const [theme, setTheme] = useState("light-theme");
@@ -132,7 +132,7 @@ function App() {
             path="/memory"
             element={
               <ProtectedRoute>
-                <MemoryGrid /> {/* the new Memory Game component */}
+                <MemoryMatrix />
               </ProtectedRoute>
             }
           />
