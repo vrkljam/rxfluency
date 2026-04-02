@@ -62,32 +62,6 @@ const Flashcards = () => {
     setFlipped(false);
     setLoading(false);
   };
-  // const fetchCards = async (n) => {
-  //   setLoading(true);
-  //   let url = "/drugs/";
-  //   let params = [];
-
-  //   if (top200Only) params.push("is_top_200=true");
-  //   if (selectedClasses.length) {
-  //     selectedClasses.forEach((c) => params.push(`classes=${c}`));
-  //   }
-  //   if (params.length) url += "?" + params.join("&");
-
-  //   const res = await api.get(url);
-
-  //   const shuffled = res.data.sort(() => 0.5 - Math.random());
-  //   const safeCount = Math.min(n, shuffled.length);
-  //   const selected = shuffled.slice(0, safeCount);
-
-  //   setActiveCards(selected);
-  //   setConfidentCards([]);
-  //   setRatings({});
-  //   setSessionComplete(false);
-  //   setCards(shuffled.slice(0, safeCount));
-  //   setCurrentIndex(0);
-  //   setFlipped(false);
-  //   setLoading(false);
-  // };
 
   const resetSession = () => {
     setLimit(null);

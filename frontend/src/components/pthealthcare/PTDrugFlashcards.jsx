@@ -67,46 +67,6 @@ function PTDrugFlashcards() {
         </div>
       </div>
 
-      {/* old way */}
-      {/* <div
-        className="card shadow-lg mx-auto"
-        style={{
-          maxWidth: "500px",
-          minHeight: "300px",
-          borderRadius: "20px",
-          cursor: "pointer",
-        }}
-        onClick={() => setFlipped(!flipped)}
-      >
-        <div className="card-body d-flex flex-column justify-content-center">
-          {!flipped ? (
-            <>
-              <h2>{drug.name}</h2>
-              <p className="text-muted">{drug.drug_class}</p>
-              <p className="mt-4">Tap to reveal key facts</p>
-            </>
-          ) : (
-            <>
-              <h5>Mechanism</h5>
-              <p>
-                {drug.facts
-                  .filter((f) => f.category === "mechanism")
-                  .map((f) => f.text)}
-              </p>
-
-              <h5 className="mt-3">Key Side Effect</h5>
-              <p>
-                {drug.facts
-                  .filter((f) => f.category === "side_effect")
-                  .map((f) => f.text)}
-              </p>
-
-              <p className="mt-3 text-muted">Tap card to flip back</p>
-            </>
-          )}
-        </div>
-      </div> */}
-
       <div className="mt-4">
         <button className="btn btn-secondary me-2" onClick={prevCard}>
           Previous

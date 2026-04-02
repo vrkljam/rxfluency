@@ -39,7 +39,34 @@ const QuizSetup2 = () => {
   };
 
   return (
-    <div className="container my-5">
+    <div className="d-flex flex-column align-items-center text-center">
+      <div style={{ maxWidth: "700px", width: "100%" }}>
+        <h4 className="mb-3 fs-1">Quiz</h4>
+
+        {/* Instructions */}
+        <div className="card p-3 mb-4 shadow-sm text-start">
+          <h5 className="mb-2">How This Quiz Works 🧪</h5>
+
+          <ul className="mb-2">
+            <li>
+              Choose the direction: <strong>Brand → Generic</strong> or{" "}
+              <strong>Generic → Brand</strong>.
+            </li>
+            <li>Select how many questions you want.</li>
+            <li>(Optional) Add a timer for exam-style pressure.</li>
+            <li>Answer each question and test your recall.</li>
+          </ul>
+
+          <hr />
+
+          <h6 className="mb-1">Tips for Success 🎯</h6>
+          <ul className="mb-0">
+            <li>Focus on accuracy first, then speed.</li>
+            <li>Use timed mode once you're comfortable.</li>
+            <li>Review missed questions — that’s where learning happens.</li>
+          </ul>
+        </div>
+      </div>
       {/* Question Direction */}
       <div className="card p-3 mb-4">
         <h5 className="mb-3">Question Direction</h5>
@@ -65,7 +92,7 @@ const QuizSetup2 = () => {
       <div className="card p-3 mb-4">
         <h5 className="mb-3">Number of Questions</h5>
         <div className="d-flex gap-3">
-          {[5, 10, 20].map((num) => (
+          {[50, 100, 200].map((num) => (
             <div
               key={num}
               className={cardClass(questionCount === num)}

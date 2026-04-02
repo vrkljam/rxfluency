@@ -30,24 +30,6 @@ const FlashcardSession = ({
   // Safe card access
   const card = currentList[currentIndex] || null;
 
-  // inside FlashcardSession
-  // const handleRate = (rating) => {
-  //   if (!card) return;
-
-  // Move card to confident group if rating is good or easy
-  // if (rating >= 4) {
-  // 4 = "Good", 5 = "Easy"
-  //   setConfidentCards((prev) => [...prev, card]);
-  //   setActiveCards((prev) => prev.filter((c) => c.id !== card.id));
-  // }
-
-  // You could also store ratings if needed
-  // setRatings(prev => ({ ...prev, [card.id]: rating }));
-
-  // Automatically go to next card
-  //   nextCard();
-  // };
-
   const [isScattering, setIsScattering] = useState(false);
   const [showRoundNotice, setShowRoundNotice] = useState(false);
 
@@ -90,11 +72,6 @@ const FlashcardSession = ({
     setCurrentIndex((i) => (i > 0 ? i - 1 : currentList.length - 1));
     setFlipped(false);
   };
-
-  // const nextCard = () => {
-  //   setCurrentIndex((i) => (i < currentList.length - 1 ? i + 1 : 0));
-  //   setFlipped(false);
-  // };
 
   const nextCard = () => {
     setCurrentIndex((i) => {
@@ -187,13 +164,6 @@ const FlashcardSession = ({
       {view === "active" && (
         <ConfidenceButtons onRate={handleRate} mode="labeled" />
       )}
-      {/* {view === "active" && (
-        <ConfidenceButtons
-          card={card}
-          currentIndex={currentIndex}
-          onRate={handleRate} // ✅ pass the function
-        />
-      )} */}
 
       {/* Navigation buttons */}
       <div className="mt-4">

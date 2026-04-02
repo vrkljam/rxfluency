@@ -19,21 +19,34 @@ const FlashcardSetup = ({
 }) => {
   return (
     <div className="container mt-5 text-center login-page">
-      <h4 className="mb-3 fs-1">Choose Number of Flashcards</h4>
+      <h4 className="mb-3 fs-1">Flashcards</h4>
 
       <div
         className="card p-3 mb-4 shadow-sm text-start mx-auto"
         style={{ maxWidth: "600px" }}
       >
         <h5 className="mb-2">How This Study Session Works 💊</h5>
-        <ul className="mb-0">
-          <li>Select how many drug cards you'd like to study.</li>
-          <li>Each card will test brand ↔ generic recall.</li>
-          <li>Flip cards during the session and rate your confidence (1–5).</li>
+
+        <ul className="mb-2">
+          <li>Choose Study Mode.</li>
           <li>
-            Cards rated 4–5 move to the <strong>Confident</strong> group.
+            Choose how many drug cards you want to study. Either a preset or
+            custom amount.
           </li>
-          <li>Your goal: move all cards to Confident.</li>
+          <li>
+            Each card tests <strong>brand ↔ generic recall</strong>.
+          </li>
+          <li>
+            Tap a card to flip it, then rate your confidence from{" "}
+            <strong>1–5</strong>.
+          </li>
+          <li>
+            Cards rated <strong>4–5</strong> move to your{" "}
+            <strong>Confident</strong> pile.
+          </li>
+          <li>
+            Your goal: move all cards to <strong>Confident</strong>.
+          </li>
         </ul>
       </div>
 
@@ -70,20 +83,6 @@ const FlashcardSetup = ({
           </label>
         </div>
       </div>
-      {/* <div className="card p-3 mb-4 mx-auto" style={{ maxWidth: "400px" }}>
-        <div className="form-check form-switch d-flex justify-content-between align-items-center">
-          <label className="form-check-label fs-5" htmlFor="top200Toggle">
-            Top 200 Drugs
-          </label>
-          <input
-            className="form-check-input"
-            type="checkbox"
-            id="top200Toggle"
-            checked={top200Only}
-            onChange={() => setTop200Only(!top200Only)}
-          />
-        </div>
-      </div> */}
 
       {/* new searchable */}
 
@@ -106,6 +105,7 @@ const FlashcardSetup = ({
               style={{
                 maxHeight: "240px",
                 overflowY: "auto",
+                backgroundColor: "#f8f9fa", // Bootstrap light gray
               }}
             >
               {filteredClasses.length > 0 ? (
@@ -115,7 +115,7 @@ const FlashcardSetup = ({
                     className={`btn btn-sm me-1 mb-1 ${
                       selectedClasses.includes(c.id)
                         ? "btn-primary"
-                        : "btn-outline-secondary"
+                        : "btn-outline-dark"
                     }`}
                     onClick={() => toggleClass(c.id)}
                   >
@@ -129,13 +129,13 @@ const FlashcardSetup = ({
 
             <div className="mt-2 d-flex justify-content-between">
               <button
-                className="btn btn-outline-danger btn-sm"
+                className="btn btn-danger btn-sm text-white"
                 onClick={() => selectedClasses.forEach((id) => toggleClass(id))}
               >
                 Clear Selection
               </button>
               <button
-                className="btn btn-outline-success btn-sm"
+                className="btn btn-success btn-sm text-white"
                 onClick={() =>
                   filteredClasses.forEach((c) => {
                     if (!selectedClasses.includes(c.id)) toggleClass(c.id);
@@ -177,12 +177,12 @@ const FlashcardSetup = ({
       )}
       {/* Preset flashcard buttons */}
       <div className="card p-3 mx-auto mb-3" style={{ maxWidth: "300px" }}>
-        <h6>Choose a preset amount</h6>
+        <h6>Choose a Number of Cards</h6>
         <div className="d-flex justify-content-between mt-2">
           {[50, 100, 200].map((num) => (
             <button
               key={num}
-              className="btn btn-outline-primary"
+              className="btn btn-primary flex-fill m-2"
               onClick={() => {
                 setLimit(num);
                 fetchCards(num);
@@ -196,7 +196,7 @@ const FlashcardSetup = ({
       </div>
       {/* Custom input */}
       <div className="card p-3 mx-auto" style={{ maxWidth: "300px" }}>
-        <h6>Custom Amount</h6>
+        <h6>Or Enter a Custom Amount</h6>
         <input
           type="number"
           className="form-control mb-2"
@@ -226,120 +226,3 @@ const FlashcardSetup = ({
 };
 
 export default FlashcardSetup;
-
-{
-  /* Drug class search and selection */
-}
-// <div className="mb-4">
-//   <h5 className="mb-3">Drug Classes</h5>
-
-//   <div className="mb-2" style={{ maxWidth: "400px", margin: "0 auto" }}>
-//     <input
-//       type="text"
-//       className="form-control"
-//       placeholder="Search for a drug class..."
-//       value={searchQuery}
-//       onChange={(e) => setSearchQuery(e.target.value)}
-//     />
-//   </div>
-
-//   <div
-//     className="scrollable-class-container mb-4"
-//     style={{
-//       maxHeight: "220px",
-//       overflowY: "auto",
-//       display: "flex",
-//       flexWrap: "wrap",
-//       gap: "6px",
-//       justifyContent: "center",
-//     }}
-//   >
-//     {filteredClasses.map((c) => (
-//       <button
-//         key={c.id}
-//         className={`class-button ${
-//           selectedClasses.includes(c.id) ? "selected" : ""
-//         }`}
-//         onClick={() => toggleClass(c.id)}
-//       >
-//         {c.name}
-//       </button>
-//     ))}
-//   </div>
-
-//   <button
-//     className="btn btn-sm btn-outline-danger mt-3"
-//     onClick={() => {
-//       setTop200Only(false);
-//       selectedClasses.forEach((id) => toggleClass(id)); // deselect all
-//     }}
-//   >
-//     Clear Filters
-//   </button>
-// </div>
-
-// {/* new searchable */}
-
-// {studyMode === "class" && (
-//   <div className="mb-4">
-//     {/* <div className="mb-4"> */}
-//     <h5 className="mb-2">Drug Classes</h5>
-
-//     {/* Search input */}
-//     <input
-//       type="text"
-//       className="form-control mb-2"
-//       placeholder="Search for a drug class..."
-//       value={searchQuery}
-//       onChange={(e) => setSearchQuery(e.target.value)}
-//     />
-
-//     {/* Scrollable container */}
-//     <div
-//       className="scrollable-class-container border rounded p-2"
-//       style={{
-//         maxHeight: "240px", // roughly 6–7 rows
-//         overflowY: "auto",
-//         display: "block", // force block instead of flex
-//       }}
-//     >
-//       {filteredClasses.length > 0 ? (
-//         filteredClasses.map((c) => (
-//           <button
-//             key={c.id}
-//             className={`btn btn-sm me-1 mb-1 ${
-//               selectedClasses.includes(c.id)
-//                 ? "btn-primary"
-//                 : "btn-outline-secondary"
-//             }`}
-//             style={{ display: "inline-block" }} // ensures buttons wrap properly
-//             onClick={() => toggleClass(c.id)}
-//           >
-//             {c.name}
-//           </button>
-//         ))
-//       ) : (
-//         <p className="text-muted mb-0">No classes match your search.</p>
-//       )}
-//     </div>
-
-//     <div className="mt-2 d-flex justify-content-between">
-//       <button
-//         className="btn btn-outline-danger btn-sm"
-//         onClick={() => selectedClasses.forEach((id) => toggleClass(id))}
-//       >
-//         Clear Selection
-//       </button>
-//       <button
-//         className="btn btn-outline-success btn-sm"
-//         onClick={() =>
-//           filteredClasses.forEach((c) => {
-//             if (!selectedClasses.includes(c.id)) toggleClass(c.id);
-//           })
-//         }
-//       >
-//         Select All
-//       </button>
-//     </div>
-//   </div>
-// )}

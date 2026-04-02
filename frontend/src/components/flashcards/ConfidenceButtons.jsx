@@ -15,7 +15,6 @@ const ConfidenceButtons = ({ onRate, mode = "numeric" }) => {
         {labeledRatings.map((r) => (
           <button
             key={r.label}
-            // className={`btn btn-outline-${r.color} text-center px-3 py-2`}
             className={`btn ${r.class} text-center px-3 py-2`}
             onClick={() => onRate(r.value)}
             style={{ minWidth: "90px" }}
