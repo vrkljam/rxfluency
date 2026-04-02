@@ -42,13 +42,3 @@ const Profile = () => {
 };
 
 export default Profile;
-
-// return user ? (
-//   <div>
-//     <h1>{user.username}</h1>
-//     <p>{user.email}</p>
-//   </div>
-// ) : (
-//   <p>loading...</p>
-// );
-// };

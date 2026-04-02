@@ -22,7 +22,6 @@ const Flashcard = ({ card, flipped, setFlipped, isSpinning, isScattering }) => {
   return (
     <div className="flashcard-clip">
       <div
-        // className={`shadow-sm flashcard ${flipped ? "flipped" : ""} ${isSpinning ? "spinning" : ""}`}
         className={`flashcard 
     ${flipped ? "flipped" : ""} 
     ${isScattering ? "scatter" : ""}

@@ -23,9 +23,6 @@ from django.views.generic import TemplateView
 
 
 
-# def home(request):
-#     return HttpResponse("Hello 👋 Drug quiz backend is running.")
-
 urlpatterns = [
   
     path('admin/', admin.site.urls),
@@ -36,6 +33,5 @@ urlpatterns = [
     path('api/token/refresh/', TokenRefreshView.as_view(), name="token_refresh"),#both these in the simplejwt docs
     
         # catch-all: serve React frontend
-    # re_path(r'^.*$', TemplateView.as_view(template_name="index.html")),
     re_path(r'^(?!api/).*$', TemplateView.as_view(template_name="index.html")),
 ]

@@ -1,6 +1,5 @@
 import { createContext, useEffect, useState } from "react";
 import { isAuthenticated, getProfile, login as apiLogin } from "../api/auth";
-import { Navigate } from "react-router-dom";
 
 export const AuthContext = createContext();
 
@@ -36,7 +35,6 @@ export const AuthProvider = ({ children }) => {
     setIsAuth(false);
     setUser(null);
     window.location.href = "/login";
-    // <Navigate to="/login" replace />;
   };
 
   return (
