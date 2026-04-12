@@ -96,9 +96,28 @@ WSGI_APPLICATION = 'drugquizbackend.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 
-DATABASES = {
-    "default": dj_database_url.parse(os.getenv("DATABASE_URL"))
-}
+# DATABASES = {
+#     "default": dj_database_url.parse(os.getenv("DATABASE_URL"))
+# }
+
+
+USE_RENDER = os.getenv("USE_RENDER_DB") == "1"
+
+if USE_RENDER:
+    DATABASES = {
+        "default": dj_database_url.parse(os.getenv("DATABASE_URL"))
+    }
+else:
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.postgresql",
+            "NAME": os.getenv("DB_NAME"),
+            "USER": os.getenv("DB_USER"),
+            "PASSWORD": os.getenv("DB_PASSWORD"),
+            "HOST": os.getenv("DB_HOST", "localhost"),
+            "PORT": os.getenv("DB_PORT", "5432"),
+        }
+    }
 
 
 CORS_ALLOWED_ORIGINS = [
