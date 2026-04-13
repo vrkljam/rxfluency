@@ -106,6 +106,14 @@ const Navbar = ({ theme, setTheme }) => {
                   Manage PT Drugs
                 </Link>
               </li>
+              <li className="nav-item">
+                <Link
+                  className={navBtn("/admin/pt-drug-classes")}
+                  to="/admin/pt-drug-classes"
+                >
+                  Manage PT Drug Classes
+                </Link>
+              </li>
             </>
           )}
         </ul>

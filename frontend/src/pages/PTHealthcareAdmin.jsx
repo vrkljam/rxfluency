@@ -4,14 +4,33 @@ import api from "../api/api";
 const PTHealthcareAdmin = () => {
   const [drugs, setDrugs] = useState([]);
   const [newDrugName, setNewDrugName] = useState("");
+  const [drugClasses, setDrugClasses] = useState([]);
+  const [classSearch, setClassSearch] = useState("");
+  const [showDropdown, setShowDropdown] = useState(false);
+
+  const fetchClasses = async () => {
+    try {
+      const res = await api.get("/pthealthcare/drug-classes/");
+      setDrugClasses(res.data);
+    } catch (err) {
+      console.error(err);
+    }
+  };
 
   const fetchDrugs = async () => {
     const res = await api.get("pthealthcare/drugs/");
-    setDrugs(res.data);
+
+    const normalized = res.data.map((drug) => ({
+      ...drug,
+      class_ids: drug.classes ? drug.classes.map((c) => c.id) : [],
+    }));
+
+    setDrugs(normalized);
   };
 
   useEffect(() => {
     fetchDrugs();
+    fetchClasses();
   }, []);
 
   // --- DRUG CRUD ---
@@ -49,9 +68,16 @@ const PTHealthcareAdmin = () => {
 
   const addFactToDrug = (drugIndex) => {
     const updated = [...drugs];
+
+    const newFact = {
+      text: "",
+      category: "other",
+      order: updated[drugIndex].facts.length,
+    };
+
     updated[drugIndex] = {
       ...updated[drugIndex],
-      [field]: value,
+      facts: [...updated[drugIndex].facts, newFact],
     };
 
     setDrugs(updated);
@@ -63,41 +89,21 @@ const PTHealthcareAdmin = () => {
     setDrugs(updated);
   };
 
-  // --- SAVE DRUG + FACTS ---
+  // {------new saveDrug -----}
   const saveDrug = async (drug) => {
-    const { id, name, drug_class, notes, facts } = drug;
+    const { id, name, notes, class_ids } = drug;
 
-    // Save or update the drug itself
-    const drugRes = await api.put(`pthealthcare/drugs/${id}/`, {
-      name,
-      drug_class,
-      notes,
-    });
+    try {
+      await api.put(`/pthealthcare/drugs/${id}/`, {
+        name,
+        notes,
+        class_ids: class_ids || [],
+      });
 
-    // Save each fact
-    await Promise.all(
-      facts.map(async (fact) => {
-        if (fact.id) {
-          // existing fact
-          await api.put(`pthealthcare/facts/${fact.id}/`, {
-            text: fact.text,
-            category: fact.category,
-            order: fact.order,
-            drug: id,
-          });
-        } else {
-          // new fact
-          await api.post(`pthealthcare/facts/`, {
-            text: fact.text,
-            category: fact.category,
-            order: fact.order,
-            drug: id,
-          });
-        }
-      }),
-    );
-
-    fetchDrugs(); // refresh after save
+      fetchDrugs();
+    } catch (err) {
+      console.error("Error saving drug:", err);
+    }
   };
 
   return (
@@ -119,38 +125,125 @@ const PTHealthcareAdmin = () => {
 
       {drugs.map((drug, drugIndex) => (
         <div key={drug.id} className="card mb-4">
-          <div className="card-header d-flex justify-content-between align-items-center">
-            <input
-              className="form-control me-3"
-              value={drug.name}
-              onChange={(e) =>
-                handleDrugChange(drugIndex, "name", e.target.value)
-              }
-              placeholder="Drug Name"
-            />
-            <input
-              className="form-control me-3"
-              value={drug.drug_class || ""}
-              onChange={(e) =>
-                handleDrugChange(drugIndex, "drug_class", e.target.value)
-              }
-              placeholder="Drug Class"
-            />
-            <div>
-              <button
-                type="button"
-                className="btn btn-sm btn-primary me-2"
-                onClick={() => saveDrug(drug)}
-              >
-                Save
-              </button>
-              <button
-                type="button"
-                className="btn btn-sm btn-danger"
-                onClick={() => deleteDrug(drug.id)}
-              >
-                Delete
-              </button>
+          <div className="card-header">
+            <div className="d-flex justify-content-between align-items-center">
+              <input
+                className="form-control me-3"
+                value={drug.name}
+                onChange={(e) =>
+                  handleDrugChange(drugIndex, "name", e.target.value)
+                }
+                placeholder="Drug Name"
+              />
+
+              <div>
+                <button
+                  type="button"
+                  className="btn btn-sm btn-primary me-2"
+                  onClick={() => saveDrug(drug)}
+                >
+                  Save
+                </button>
+                <button
+                  type="button"
+                  className="btn btn-sm btn-danger"
+                  onClick={() => deleteDrug(drug.id)}
+                >
+                  Delete
+                </button>
+              </div>
+            </div>
+
+            {/* 👇 THIS puts badges UNDER the name */}
+            <div className="mt-2">
+              <label className="form-label">Drug Classes Selected: </label>
+              {drug.class_ids?.map((id) => {
+                const cls = drugClasses.find((c) => c.id === id);
+                if (!cls) return null;
+
+                return (
+                  <span key={id} className="badge bg-primary me-1">
+                    {cls.name}
+                  </span>
+                );
+              })}
+            </div>
+
+            {/* dropdown UNDER badges */}
+            <div className="mt-2">
+              <div className="mt-2 position-relative">
+                <label className="form-label">Drug Classes</label>
+
+                {/* Search input */}
+                <input
+                  className="form-control form-control-sm"
+                  placeholder="Search and add class..."
+                  value={classSearch}
+                  onChange={(e) => {
+                    setClassSearch(e.target.value);
+                    setShowDropdown(true);
+                  }}
+                  onFocus={() => setShowDropdown(true)}
+                />
+
+                {/* Selected chips */}
+                <div className="mt-2 d-flex flex-wrap gap-2">
+                  {drug.class_ids?.map((id) => {
+                    const cls = drugClasses.find((c) => c.id === id);
+                    if (!cls) return null;
+
+                    return (
+                      <span key={id} className="badge bg-primary">
+                        {cls.name}
+                        <button
+                          type="button"
+                          className="btn-close btn-close-white btn-sm ms-2"
+                          onClick={() => {
+                            const updated = drug.class_ids.filter(
+                              (x) => x !== id,
+                            );
+                            handleDrugChange(drugIndex, "class_ids", updated);
+                          }}
+                        />
+                      </span>
+                    );
+                  })}
+                </div>
+
+                {/* Dropdown results */}
+                {showDropdown && classSearch && (
+                  <div
+                    className="border bg-white position-absolute w-100"
+                    style={{
+                      maxHeight: "200px",
+                      overflowY: "auto",
+                      zIndex: 10,
+                    }}
+                  >
+                    {drugClasses
+                      .filter((cls) =>
+                        cls.name
+                          .toLowerCase()
+                          .includes(classSearch.toLowerCase()),
+                      )
+                      .filter((cls) => !drug.class_ids?.includes(cls.id))
+                      .map((cls) => (
+                        <div
+                          key={cls.id}
+                          className="p-2 hover-bg"
+                          style={{ cursor: "pointer" }}
+                          onClick={() => {
+                            const updated = [...(drug.class_ids || []), cls.id];
+                            handleDrugChange(drugIndex, "class_ids", updated);
+                            setClassSearch("");
+                          }}
+                        >
+                          {cls.name}
+                        </div>
+                      ))}
+                  </div>
+                )}
+              </div>
             </div>
           </div>
 

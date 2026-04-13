@@ -26,6 +26,7 @@ import PTHealthcareDrugReference from "./components/pthealthcare/PTHealthcareDru
 import PTDrugFlashcards from "./components/pthealthcare/PTDrugFlashcards";
 import PTReference from "./components/pthealthcare/PTReferenceTable";
 import MemoryMatrix from "./components/memoryGame/MemoryMatrix";
+import PTDrugClassAdmin from "./components/pthealthcare/PTDrugClassAdmin";
 
 function App() {
   const [theme, setTheme] = useState("light-theme");
@@ -147,6 +148,7 @@ function App() {
             }
           />
           <Route path="/admin/pt-drugs" element={<PTHealthcareAdmin />} />
+          <Route path="/admin/pt-drug-classes" element={<PTDrugClassAdmin />} />
         </Route>
       </Routes>
     </>
