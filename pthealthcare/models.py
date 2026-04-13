@@ -3,7 +3,11 @@ from django.db import models
 
 class PTHealthcareDrug(models.Model):
     name = models.CharField(max_length=255, unique=True)
+      # KEEP OLD FOR SAFETY (temporary)
     drug_class = models.CharField(max_length=255, blank=True)
+
+    # NEW RELATIONAL VERSION
+    classes = models.ManyToManyField("DrugClass", blank=True)
     notes = models.TextField(blank=True)
 
     def __str__(self):
@@ -44,3 +48,10 @@ class DrugFact(models.Model):
 
     def __str__(self):
         return f"{self.drug.name} - {self.text[:40]}"
+    
+
+class DrugClass(models.Model):
+    name = models.CharField(max_length=255, unique=True)
+
+    def __str__(self):
+        return self.name
